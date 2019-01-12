@@ -64,7 +64,7 @@ public class OI {
         joystick = new Joystick(0);
         
         button2 = new JoystickButton(joystick, 2);
-        button2.whenPressed(new DriveForwardProximity(0, 0));
+        button2.whenPressed(new DriveForwardProximity(5, .3));
         button1 = new JoystickButton(joystick, 1);
         button1.whenPressed(new DriveWithJoystick());
 

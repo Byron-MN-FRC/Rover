@@ -12,6 +12,7 @@
 package org.usfirst.frc4858.Rover.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4858.Rover.Robot;
+import org.usfirst.frc4858.Rover.subsystems.DriveTrain;
 
 /**
  *
@@ -42,11 +43,13 @@ public class DriveForwardProximity extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-    }
+        setTimeout(m_timeoutInMs);
+        }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.driveTrain.driveForwardProximity(m_speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
