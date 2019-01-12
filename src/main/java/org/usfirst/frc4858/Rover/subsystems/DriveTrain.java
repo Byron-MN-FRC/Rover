@@ -12,6 +12,7 @@
 package org.usfirst.frc4858.Rover.subsystems;
 
 
+import org.usfirst.frc4858.Rover.Robot;
 import org.usfirst.frc4858.Rover.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -149,7 +150,16 @@ public class DriveTrain extends Subsystem {
     }
     
     public void driveStop() {
-    	mecanumDrive.driveCartesian(0,0,0,0);
+        mecanumDrive.driveCartesian(0,0,0,0);
+    }
+    
+    public void driveForwardProximity(double speed) {
+       if (lidarProximity.get()) {
+           mecanumDrive.driveCartesian(0, 0, 0, 0);
+       } else {
+           mecanumDrive.driveCartesian(0, speed, 0, 0);
+       }
+    
     }
 }
 
