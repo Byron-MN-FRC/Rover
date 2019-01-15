@@ -14,7 +14,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: &id002 [CANID]
-            value: '3'
+            value: '1'
         Base: Talon SRX
         Name: leftFrontMotor
       - Children: []
@@ -24,7 +24,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '4'
+            value: '3'
         Base: Talon SRX
         Name: leftRearMotor
       - Children: []
@@ -34,7 +34,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '5'
+            value: '2'
         Base: Talon SRX
         Name: rightFrontMotor
       - Children: []
@@ -44,7 +44,7 @@ Children:
             default: '2'
             name: CAN ID
             validators: *id002
-            value: '10'
+            value: '4'
         Base: Talon SRX
         Name: rightRearMotor
       Properties:
@@ -437,9 +437,9 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Gabreil\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\heinz\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Gabreil\FRCProjects',
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_Git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: None}
