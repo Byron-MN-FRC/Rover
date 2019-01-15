@@ -134,7 +134,12 @@ public class DriveTrain extends Subsystem {
        } else {
            mecanumDrive.driveCartesian(0, speed, 0, 0);
        }
+
     
     }
+    public boolean getLidarProximity() {
+       return lidarProximity.get();
+    }
+
 }
 
