@@ -4,6 +4,7 @@ import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
+
 public class LimelightUtility {
 
     static private double tv;      //Whether the limelight has any valid targets (0 or 1)
@@ -18,12 +19,12 @@ public class LimelightUtility {
     static private double tvert;	//Vertical sidelength of the rough bounding box (0 - 320 pixels)
 
     static public boolean ValidTargetFound() { return tv != 0.0; }     //Whether the limelight has any valid targets (0 or 1)
-    static public double HorizontalOffset;                             //Horizontal Offset From Crosshair To Target (-27 degrees to 27 degrees)
-    static public double VerticalOffset;                               //Vertical Offset From Crosshair To Target (-20.5 degrees to 20.5 degrees)
+    static public double TargetHorizontalOffset;                       //Horizontal Offset From Crosshair To Target (-27 degrees to 27 degrees)
+    static public double TargetVerticalOffset;                         //Vertical Offset From Crosshair To Target (-20.5 degrees to 20.5 degrees)
     static public double TargetAreaPercentage;                         //Target Area (0% of image to 100% of image)
-    static public double Skew;                                         //Skew or rotation (-90 degrees to 0 degrees)
+    static public double TargetSkew;                                   //Skew or rotation (-90 degrees to 0 degrees)
     static public double PipelineLatency;                              //The pipeline’s latency contribution (ms) Add at least 11ms for image capture latency.
-    static public double TargetSideLenghtShortest;                     //Sidelength of shortest side of the fitted bounding box (pixels)
+    static public double TargetSideLengthShortest;                     //Sidelength of shortest side of the fitted bounding box (pixels)
     static public double TargetSideLenghtLongest;                      //Sidelength of longest side of the fitted bounding box (pixels)
     static public double TargetHorizSideLengthRoughBox;                //Horizontal sidelength of the rough bounding box (0 - 320 pixels)
     static public double TargetVertSideLengthRoughbox;                 //Vertical sidelength of the rough bounding box (0 - 320 pixels)
@@ -40,12 +41,12 @@ public class LimelightUtility {
         thoriz = NetworkTableInstance.getDefault().getTable("limelight").getEntry("thoriz").getDouble(0);
         tvert  = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tvert").getDouble(0);
 
-        HorizontalOffset                = tv;
-        VerticalOffset                  = tx;
+        TargetHorizontalOffset          = tv;
+        TargetVerticalOffset            = tx;
         TargetAreaPercentage            = ty;
-        Skew                            = ts;
+        TargetSkew                      = ts;
         PipelineLatency                 = tl;
-        TargetSideLenghtShortest        = tshort;
+        TargetSideLengthShortest        = tshort;
         TargetSideLenghtLongest         = tlong;
         TargetHorizSideLengthRoughBox   = thoriz; 
         TargetVertSideLengthRoughbox    = tvert;

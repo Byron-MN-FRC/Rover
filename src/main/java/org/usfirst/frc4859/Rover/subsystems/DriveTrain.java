@@ -123,7 +123,10 @@ public class DriveTrain extends Subsystem {
         mecanumDrive.setRightSideInverted(true);
         mecanumDrive.driveCartesian(pJoystick.getX(), -pJoystick.getY(), pJoystick.getTwist(),0);
     }
-    
+
+    public void driveToTargetWithVision(double xSpeed, double ySpeed, double zSpeed){
+        mecanumDrive.driveCartesian(xSpeed, ySpeed, zSpeed);
+    }
     public void driveStop() {
         mecanumDrive.driveCartesian(0,0,0,0);
     }
@@ -134,12 +137,11 @@ public class DriveTrain extends Subsystem {
        } else {
            mecanumDrive.driveCartesian(0, speed, 0, 0);
        }
-
-    
     }
     public boolean getLidarProximity() {
        return lidarProximity.get();
     }
+
 
 }
 
