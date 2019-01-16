@@ -149,5 +149,7 @@ gradle-app.setting
 .settings/
 bin/
 
+# Robot Builder Temporary Files
+*.java~
 
 # End of https://www.gitignore.io/api/c++,java,linux,macos,gradle,windows,visualstudiocode
