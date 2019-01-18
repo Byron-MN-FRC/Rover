@@ -10,11 +10,14 @@
 
 
 package org.usfirst.frc4859.Rover.commands;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+
 import org.usfirst.frc4859.Rover.Robot;
 import org.usfirst.frc4859.Rover.utility.*;
 import org.usfirst.frc4859.Rover.utility.VisionTrackingPIDSource.DataSource;
@@ -78,8 +81,16 @@ public class DriveToVisionTarget extends Command {
     @Override
     protected void initialize() {
         approachController.enable();
-        side2SideController.enable();
-        rotationController.enable();
+        //side2SideController.enable();
+        //rotationController.enable();
+
+        approachController.setInputRange(0, 100);
+        approachController.setOutputRange(0, 1);
+
+        LiveWindow.add(approachController);
+        //LiveWindow.add(side2SideController);
+        //LiveWindow.add(rotationController);
+        System.out.println("Init");
     }
 
 
@@ -92,17 +103,25 @@ public class DriveToVisionTarget extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        System.out.println("isFinished");
+        // When using whilepressed() you dont need to do the next line.  Interupted is called.
+        // return (!Robot.oi.getJoystick().getRawButton(6));
         return false;
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        System.out.println("end");
+        side2SideController.disable();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        System.out.println("interupted");
+
+        end();
     }
 }

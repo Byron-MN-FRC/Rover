@@ -50,5 +50,25 @@ public class LimelightUtility {
         TargetSideLenghtLongest         = tlong;
         TargetHorizSideLengthRoughBox   = thoriz; 
         TargetVertSideLengthRoughbox    = tvert;
+
+    }
+
+    static public void LogTrackingData() {
+        RefreshTrackingData();
+        System.out.println('.');System.out.println('.');
+        System.out.println("######################################################");
+        System.out.println("#            Tracking data from Limelight            #");
+        System.out.println("######################################################");
+        System.out.print("TargetHorizontalOffset          =");System.out.println(tv);
+        System.out.print("TargetVerticalOffset            =");System.out.println(tx);
+        System.out.print("TargetAreaPercentage            =");System.out.println(ty);
+        System.out.print("TargetSkew                      =");System.out.println(ts);
+        System.out.print("PipelineLatency                 =");System.out.println(tl);
+        System.out.print("TargetSideLengthShortest        =");System.out.println(tshort);
+        System.out.print("TargetSideLenghtLongest         =");System.out.println(tlong);
+        System.out.print("TargetHorizSideLengthRoughBox   =");System.out.println(thoriz);
+        System.out.print("TargetVertSideLengthRoughbox    =");System.out.println(tvert);
+        System.out.println("######################################################");
+
     }
 }
