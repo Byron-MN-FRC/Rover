@@ -12,6 +12,7 @@
 package org.usfirst.frc4859.Rover.commands;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 import org.usfirst.frc4859.Rover.Robot;
+import org.usfirst.frc4859.Rover.utility.LimelightUtility;
 
 /**
  *
@@ -38,6 +39,7 @@ public class LogLimelightValues extends InstantCommand {
     // Called once when this command runs
     @Override
     protected void initialize() {
+        LimelightUtility.LogTrackingData();
     }
 
 }
