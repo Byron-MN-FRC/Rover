@@ -118,7 +118,7 @@ public class DriveTrain extends Subsystem {
         addChild("lidarProximity",lidarProximity);
         
         
-        pigeon = new PigeonIMU(6);
+        pigeon = new PigeonIMU(12);
         
         
         
