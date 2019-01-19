@@ -27,6 +27,7 @@ import edu.wpi.first.wpilibj.PIDOutput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc4859.Rover.commands.FlipMode;;
 
 /**
  *
@@ -83,6 +84,8 @@ public class DriveTrain extends Subsystem {
     private double pidOutSide2Side = 0;
     private double pidOutRotation = 0;
     public double pidOutApproach = 0;
+
+    public boolean fMode = false; 
 
     public DriveTrain() {
         super("DriveTrain");
@@ -158,9 +161,18 @@ public class DriveTrain extends Subsystem {
   
      
     public void driveWithJoystick(Joystick pJoystick) {
+        double y = -pJoystick.getY();
+		double x = pJoystick.getX();
+        double twist = pJoystick.getTwist();
+        
+        if (fMode) {
+			y *= -1;
+			x *= -1;
+		}
         // 2017 code has slow/fast speed which should look at adding & has x/y reversed (not sure why)
         mecanumDrive.setRightSideInverted(true);
-        mecanumDrive.driveCartesian(pJoystick.getX(), -pJoystick.getY(), pJoystick.getTwist(),0);
+        mecanumDrive.driveCartesian(x, y, twist,0);
+        
     }
 
     public void driveToTargetWithVision(double xSpeed, double ySpeed, double zSpeed){
