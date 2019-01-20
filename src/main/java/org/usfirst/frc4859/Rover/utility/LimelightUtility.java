@@ -38,19 +38,18 @@ public class LimelightUtility {
         tl = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tl").getDouble(0);
         tshort = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tshort").getDouble(0);
         tlong  = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tlong").getDouble(0);
-        thoriz = NetworkTableInstance.getDefault().getTable("limelight").getEntry("thoriz").getDouble(0);
+        thoriz = NetworkTableInstance.getDefault().getTable("limelight").getEntry("thor").getDouble(0);
         tvert  = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tvert").getDouble(0);
 
-        TargetHorizontalOffset          = tv;
-        TargetVerticalOffset            = tx;
-        TargetAreaPercentage            = ty;
+        TargetHorizontalOffset          = tx;
+        TargetVerticalOffset            = ty;
+        TargetAreaPercentage            = ta;
         TargetSkew                      = ts;
         PipelineLatency                 = tl;
         TargetSideLengthShortest        = tshort;
         TargetSideLenghtLongest         = tlong;
         TargetHorizSideLengthRoughBox   = thoriz; 
         TargetVertSideLengthRoughbox    = tvert;
-
     }
 
     static public void LogTrackingData() {
