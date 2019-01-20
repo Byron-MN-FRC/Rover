@@ -49,25 +49,33 @@ public class VisionTrackingPIDSource implements PIDSource {
       LimelightUtility.RefreshTrackingData();
 
       switch(visionTrackingSource) {
-        case TargetSkew: value = LimelightUtility.TargetSkew;
+        case TargetSkew: 
+            value = LimelightUtility.TargetSkew;
             break;
-        case TargetHorizontalOffset: value = LimelightUtility.TargetHorizontalOffset;
+        case TargetHorizontalOffset: 
+            value = LimelightUtility.TargetHorizontalOffset;
             break;
-        case TargetVerticalOffset: value = LimelightUtility.TargetVerticalOffset;
+        case TargetVerticalOffset: value = 
+            LimelightUtility.TargetVerticalOffset;
             break;
-        case TargetAreaPercentage: value = LimelightUtility.TargetAreaPercentage;
+        case TargetAreaPercentage: value = 
+            LimelightUtility.TargetAreaPercentage;
             break;
-        case TargetSideLengthShortest: value = LimelightUtility.TargetSideLengthShortest;
+        case TargetSideLengthShortest: value = 
+            LimelightUtility.TargetSideLengthShortest;
             break;
-        case TargetSideLenghtLongest: value = LimelightUtility.TargetSideLenghtLongest;
+        case TargetSideLenghtLongest: value = 
+            LimelightUtility.TargetSideLenghtLongest;
             break;
-        case TargetHorizSideLengthRoughBox: value = LimelightUtility.TargetHorizSideLengthRoughBox;
+        case TargetHorizSideLengthRoughBox: value = 
+            LimelightUtility.TargetHorizSideLengthRoughBox;
             break;
-        case TargetVertSideLengthRoughbox: value = LimelightUtility.TargetVertSideLengthRoughbox;
+        case TargetVertSideLengthRoughbox: value = 
+            LimelightUtility.TargetVertSideLengthRoughbox;
             break;
         default: value = 0.0;
       }
-      System.out.print("output from camera  ");System.out.println(value);
+      
       return value;
   }
 }
