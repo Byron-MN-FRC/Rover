@@ -58,9 +58,10 @@ public class LimelightUtility {
         System.out.println("######################################################");
         System.out.println("#            Tracking data from Limelight            #");
         System.out.println("######################################################");
-        System.out.print("TargetHorizontalOffset          =");System.out.println(tv);
-        System.out.print("TargetVerticalOffset            =");System.out.println(tx);
-        System.out.print("TargetAreaPercentage            =");System.out.println(ty);
+        System.out.print("TargetFound                     =");System.out.println(tv);
+        System.out.print("TargetHorizontalOffset          =");System.out.println(tx);
+        System.out.print("TargetVerticalOffset            =");System.out.println(ty);
+        System.out.print("TargetAreaPercentage            =");System.out.println(ta);
         System.out.print("TargetSkew                      =");System.out.println(ts);
         System.out.print("PipelineLatency                 =");System.out.println(tl);
         System.out.print("TargetSideLengthShortest        =");System.out.println(tshort);
