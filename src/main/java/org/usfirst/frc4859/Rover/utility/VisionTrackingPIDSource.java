@@ -67,6 +67,7 @@ public class VisionTrackingPIDSource implements PIDSource {
             break;
         default: value = 0.0;
       }
+      System.out.print("output from camera  ");System.out.println(value);
       return value;
   }
 }
