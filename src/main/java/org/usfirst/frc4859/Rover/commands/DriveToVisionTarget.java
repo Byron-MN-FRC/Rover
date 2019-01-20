@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc4859.Rover.Robot;
 import org.usfirst.frc4859.Rover.utility.*;
@@ -66,7 +67,7 @@ public class DriveToVisionTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        System.out.print("DriveToVisiontarget pidOutApproach value:  ");System.out.println(Robot.driveTrain.pidOutApproach);
+        SmartDashboard.putData(approachController);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -89,7 +90,6 @@ public class DriveToVisionTarget extends Command {
     @Override
     protected void interrupted() {
         System.out.println("DriveToVisiontarget interrupted()");
-
         end();
     }
 }
