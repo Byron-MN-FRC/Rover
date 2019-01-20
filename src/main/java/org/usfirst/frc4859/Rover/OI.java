@@ -69,7 +69,7 @@ public class OI {
         joystick = new Joystick(0);
         
         button9FM = new JoystickButton(joystick, 9);
-        button9FM.whenPressed(new FlipMode());
+        button9FM.toggleWhenPressed(new FlipMode());
         button8RH = new JoystickButton(joystick, 8);
         button8RH.whenPressed(new RetractHatch());
         button7DH = new JoystickButton(joystick, 7);
