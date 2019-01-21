@@ -75,7 +75,6 @@ public class VisionTrackingPIDSource implements PIDSource {
             break;
         default: value = 0.0;
       }
-      
       return value;
   }
 }
