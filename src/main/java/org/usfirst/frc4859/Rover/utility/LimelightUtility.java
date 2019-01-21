@@ -1,7 +1,5 @@
 package org.usfirst.frc4859.Rover.utility;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
+
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 
@@ -38,19 +36,18 @@ public class LimelightUtility {
         tl = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tl").getDouble(0);
         tshort = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tshort").getDouble(0);
         tlong  = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tlong").getDouble(0);
-        thoriz = NetworkTableInstance.getDefault().getTable("limelight").getEntry("thoriz").getDouble(0);
+        thoriz = NetworkTableInstance.getDefault().getTable("limelight").getEntry("thor").getDouble(0);
         tvert  = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tvert").getDouble(0);
 
-        TargetHorizontalOffset          = tv;
-        TargetVerticalOffset            = tx;
-        TargetAreaPercentage            = ty;
+        TargetHorizontalOffset          = tx;
+        TargetVerticalOffset            = ty;
+        TargetAreaPercentage            = ta;
         TargetSkew                      = ts;
         PipelineLatency                 = tl;
         TargetSideLengthShortest        = tshort;
         TargetSideLenghtLongest         = tlong;
         TargetHorizSideLengthRoughBox   = thoriz; 
         TargetVertSideLengthRoughbox    = tvert;
-
     }
 
     static public void LogTrackingData() {
@@ -59,9 +56,10 @@ public class LimelightUtility {
         System.out.println("######################################################");
         System.out.println("#            Tracking data from Limelight            #");
         System.out.println("######################################################");
-        System.out.print("TargetHorizontalOffset          =");System.out.println(tv);
-        System.out.print("TargetVerticalOffset            =");System.out.println(tx);
-        System.out.print("TargetAreaPercentage            =");System.out.println(ty);
+        System.out.print("TargetFound                     =");System.out.println(tv);
+        System.out.print("TargetHorizontalOffset          =");System.out.println(tx);
+        System.out.print("TargetVerticalOffset            =");System.out.println(ty);
+        System.out.print("TargetAreaPercentage            =");System.out.println(ta);
         System.out.print("TargetSkew                      =");System.out.println(ts);
         System.out.print("PipelineLatency                 =");System.out.println(tl);
         System.out.print("TargetSideLengthShortest        =");System.out.println(tshort);
@@ -69,6 +67,5 @@ public class LimelightUtility {
         System.out.print("TargetHorizSideLengthRoughBox   =");System.out.println(thoriz);
         System.out.print("TargetVertSideLengthRoughbox    =");System.out.println(tvert);
         System.out.println("######################################################");
-
     }
 }

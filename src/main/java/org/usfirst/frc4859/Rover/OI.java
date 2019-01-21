@@ -90,7 +90,7 @@ public class OI {
         button5FP = new JoystickButton(joystick, 5);
         button5FP.whenPressed(new DriveForwardProximity(0, 0));
         button6VT = new JoystickButton(joystick, 6);
-        button6VT.whileHeld(new DriveToVisionTarget());
+        button6VT.whenPressed(new DriveToVisionTarget());
 
 
         // SmartDashboard Buttons
