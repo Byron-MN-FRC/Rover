@@ -82,7 +82,7 @@ public class OI {
         button10LB = new JoystickButton(joystick, 10);
         button10LB.whenPressed(new LaunchBall());
         button9FM = new JoystickButton(joystick, 9);
-        button9FM.toggleWhenPressed(new FlipMode());
+        button9FM.whenPressed(new FlipMode());
         button7DH = new JoystickButton(joystick, 7);
         button7DH.whenPressed(new DeployHatch());
         button4LLV = new JoystickButton(joystick, 4);
@@ -90,7 +90,7 @@ public class OI {
         button5FP = new JoystickButton(joystick, 5);
         button5FP.whenPressed(new DriveForwardProximity(0, 0));
         button6VT = new JoystickButton(joystick, 6);
-        button6VT.whenPressed(new DriveToVisionTarget());
+        button6VT.whileHeld(new DriveToVisionTarget());
 
 
         // SmartDashboard Buttons
