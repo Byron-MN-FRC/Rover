@@ -10,7 +10,10 @@
 
 
 package org.usfirst.frc4859.Rover.commands;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.usfirst.frc4859.Rover.Robot;
 
 /**
@@ -42,7 +45,10 @@ public class LidarCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        SmartDashboard.putNumber("LIDAR Distance", Robot.lidarPulse.getdis);
+
     }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
