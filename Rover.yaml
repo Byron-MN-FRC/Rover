@@ -437,7 +437,7 @@ Children:
           default: '0'
           name: Input Channel (Digital)
           validators: *id013
-          value: '2'
+          value: '0'
       Base: Digital Input
       Name: lidarTest
     Properties:
