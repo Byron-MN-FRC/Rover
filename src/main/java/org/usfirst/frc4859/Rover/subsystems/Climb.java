@@ -47,7 +47,7 @@ public class Climb extends Subsystem {
         
         
         
-        //doubleSolenoid7 = new DoubleSolenoid(11, 0, 1);
+       //doubleSolenoid7 = new DoubleSolenoid(11, 0, 1);
         //addChild("doubleSolenoid7",doubleSolenoid7);
         
         
