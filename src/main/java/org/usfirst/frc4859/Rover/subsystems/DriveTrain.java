@@ -72,8 +72,8 @@ public class DriveTrain extends Subsystem {
         mecanumDrive.setMaxOutput(1.0);
 
         
-       lidarProximity = new DigitalInput(1);
-       addChild("lidarProximity",lidarProximity);
+        lidarProximity = new DigitalInput(1);
+        addChild("lidarProximity",lidarProximity);
         
         
         pigeon = new PigeonIMU(12);
