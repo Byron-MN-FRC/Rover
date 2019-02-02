@@ -132,5 +132,10 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        SmartDashboard.putNumber("SensorVel", Robot.climb.feetMotor.getSelectedSensorVelocity(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("SensorPos",  Robot.climb.feetMotor.getSelectedSensorPosition(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("MotorOutputPercent",  Robot.climb.feetMotor.getMotorOutputPercent());
+        SmartDashboard.putNumber("ClosedLoopError",  Robot.climb.feetMotor.getClosedLoopError(Constants.kPIDLoopIdx));
+    
     }
 }
