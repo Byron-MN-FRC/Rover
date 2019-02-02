@@ -47,7 +47,8 @@ public class Duallidar {
     }
     
     
-    public static void Duallidar(String[] args) throws Exception {
+    public void Duallidar() {
 
     }
+
 }
