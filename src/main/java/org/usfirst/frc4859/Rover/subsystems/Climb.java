@@ -108,10 +108,12 @@ public class Climb extends Subsystem {
        System.out.println("shiftGravity"); 
        
        /*4096 ticks/rev * 10 Rotations in either direction */
-        double targetPos = .2 * 4096 * 10.0;
+        double targetPos = .2 * 4096 * 5.75;
         System.out.println("Target position =" + targetPos);
 		feetMotor.set(ControlMode.MotionMagic, targetPos);
-               
+         		/* Zero the sensor */
+		feetMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+      
     }
     
     //motor config taken from MotionMagic example at https://github.com/CrossTheRoadElec/Phoenix-Examples-Languages
