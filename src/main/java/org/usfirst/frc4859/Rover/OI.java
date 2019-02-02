@@ -57,7 +57,7 @@ public class OI {
     public JoystickButton button4LLV;
     public JoystickButton button7DH;
     public JoystickButton button9FM;
-    public JoystickButton button10LB;
+    public JoystickButton button10LC;
     public JoystickButton button12DK;
     public JoystickButton button8GP;
     public JoystickButton button3AR;
@@ -82,8 +82,8 @@ public class OI {
         button8GP.whenPressed(new GroundPickup());
         button12DK = new JoystickButton(joystick, 12);
         button12DK.whenPressed(new DeployKickstand());
-        button10LB = new JoystickButton(joystick, 10);
-        button10LB.whenPressed(new LaunchBall());
+        button10LC = new JoystickButton(joystick, 10);
+        button10LC.whenPressed(new LaunchCataplut());
         button9FM = new JoystickButton(joystick, 9);
         button9FM.whenPressed(new FlipMode());
         button7DH = new JoystickButton(joystick, 7);
