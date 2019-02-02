@@ -6,7 +6,12 @@ import java.util.regex.Pattern;
 import java.io.InputStreamReader;
 
 public class Duallidar {
-    public static void main(String[] args) throws Exception {
+    public int leftDistmm;
+    public int rightDistmm;
+    public double turnAngle;
+
+    public boolean ReadMeasurements() throws Exception {
+        
         Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
         Matcher matcher;
         URL lidarURL = new URL("http://10.48.59.17/");
@@ -20,12 +25,29 @@ public class Duallidar {
                      System.out.println(matcher.group(1));
                      System.out.println(matcher.group(2));
                      System.out.println(matcher.group(3));
+                     leftDistmm = Integer.parseInt(matcher.group(1));
+                     rightDistmm = Integer.parseInt(matcher.group(2));
+                     turnAngle = Double.parseDouble(matcher.group(3));
                 }
             }
             in.close();
-         } catch (Exception ex) {
-               System.out.println(ex.getMessage());
          }
-     }
+         
+         catch (Exception e) {
+                System.out.println(e.getMessage());
+                return false;
+         }
+         
+        return true;
+    }
+
      
+    public boolean Reset() {
+        return true; 
+    }
+    
+    
+    public static void Duallidar(String[] args) throws Exception {
+
+    }
 }
