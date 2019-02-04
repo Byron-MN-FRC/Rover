@@ -113,6 +113,8 @@ public class DriveToVisionTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.driveTrain.driveTotargetWithLidar();
+        /*
         SmartDashboard.putData(approachController);
         SmartDashboard.putData(rotationController);
         SmartDashboard.putNumber("pidOutApproach",  this.pidOutApproach);
@@ -131,6 +133,7 @@ public class DriveToVisionTarget extends Command {
         {
 
         }
+        */
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -138,7 +141,8 @@ public class DriveToVisionTarget extends Command {
     protected boolean isFinished() {
         // When using whilepressed() you dont need to do the next line.  Interupted is called.
         // return (!Robot.oi.getJoystick().getRawButton(6));
-        return !LimelightUtility.ValidTargetFound();
+        //return !LimelightUtility.ValidTargetFound();
+        return false;
     }
 
     // Called once after isFinished returns true

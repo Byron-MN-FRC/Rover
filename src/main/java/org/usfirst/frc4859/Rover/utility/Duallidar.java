@@ -10,14 +10,13 @@ public class Duallidar {
     public int rightDistmm;
     public double turnAngle;
 
-    public boolean ReadMeasurements() throws Exception {
-        
+    public boolean ReadMeasurements(){   
         Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
         Matcher matcher;
-        URL lidarURL = new URL("http://10.48.59.17/");
-        String inputLine;
         try {
-            BufferedReader in = new BufferedReader( new InputStreamReader(lidarURL.openStream()));
+            URL lidarURL = new URL("http://10.48.59.17/");
+            String inputLine;
+                BufferedReader in = new BufferedReader( new InputStreamReader(lidarURL.openStream()));
             while ((inputLine = in.readLine()) != null) {
                 //System.out.println(inputLine);
                 matcher = pattern.matcher(inputLine);
