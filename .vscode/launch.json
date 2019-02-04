@@ -8,7 +8,7 @@
       "type": "java",
       "name": "CodeLens (Launch) - Duallidar",
       "request": "launch",
-      "mainClass": "org.usfirst.frc4859.Rover.utility.Duallidar",
+      "mainClass": "org.usfirst.frc4859.rover.utility.Duallidar",
       "projectName": "Rover"
     },
     {

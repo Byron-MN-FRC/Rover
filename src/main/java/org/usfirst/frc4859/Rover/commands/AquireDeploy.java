@@ -9,9 +9,9 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4859.Rover.commands;
+package org.usfirst.frc4859.rover.commands;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc4859.Rover.Robot;
+import org.usfirst.frc4859.rover.Robot;
 
 /**
  *

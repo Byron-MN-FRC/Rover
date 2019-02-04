@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4859.Rover;
+package org.usfirst.frc4859.rover;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.cscore.VideoMode;
@@ -20,8 +20,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc4859.Rover.commands.*;
-import org.usfirst.frc4859.Rover.subsystems.*;
+import org.usfirst.frc4859.rover.commands.*;
+import org.usfirst.frc4859.rover.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
