@@ -12,7 +12,7 @@ public class Duallidar {
     public boolean readSuccess;
 
     public boolean ReadMeasurements(){   
-        Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
+        Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),([-+]?\\d+\\.\\d+)\\]\\]\\]");
         Matcher matcher;
         try {
             URL lidarURL = new URL("http://10.48.59.17/");
