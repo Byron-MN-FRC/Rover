@@ -16,7 +16,7 @@ public class Duallidar {
         try {
             URL lidarURL = new URL("http://10.48.59.17/");
             String inputLine;
-                BufferedReader in = new BufferedReader( new InputStreamReader(lidarURL.openStream()));
+            BufferedReader in = new BufferedReader( new InputStreamReader(lidarURL.openStream()));
             while ((inputLine = in.readLine()) != null) {
                 //System.out.println(inputLine);
                 matcher = pattern.matcher(inputLine);
@@ -30,6 +30,27 @@ public class Duallidar {
                 }
             }
             in.close();
+        }
+         
+         catch (Exception e) {
+                System.out.println(e.getMessage());
+                return false;
+        }
+         
+        return true;
+    }
+
+     
+    public boolean Reset() {
+        Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
+        Matcher matcher;
+        try {
+            URL lidarURL = new URL("http://10.48.59.17?reset");
+            String inputLine;
+            BufferedReader in = new BufferedReader( new InputStreamReader(lidarURL.openStream()));
+            while ((inputLine = in.readLine()) != null) {
+            }
+            in.close();
          }
          
          catch (Exception e) {
@@ -38,12 +59,7 @@ public class Duallidar {
          }
          
         return true;
-    }
-
-     
-    public boolean Reset() {
-        return true; 
-    }
+        }
     
     
     public void Duallidar() {
