@@ -9,6 +9,7 @@ public class Duallidar {
     public int leftDistmm;
     public int rightDistmm;
     public double turnAngle;
+    public boolean readSuccess;
 
     public boolean ReadMeasurements(){   
         Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
@@ -20,13 +21,10 @@ public class Duallidar {
             while ((inputLine = in.readLine()) != null) {
                 //System.out.println(inputLine);
                 matcher = pattern.matcher(inputLine);
-                while(matcher.find()) {
-                     System.out.println(matcher.group(1));
-                     System.out.println(matcher.group(2));
-                     System.out.println(matcher.group(3));
-                     leftDistmm = Integer.parseInt(matcher.group(1));
-                     rightDistmm = Integer.parseInt(matcher.group(2));
-                     turnAngle = Double.parseDouble(matcher.group(3));
+                while(matcher.find()) {    
+                    leftDistmm = Integer.parseInt(matcher.group(1));
+                    rightDistmm = Integer.parseInt(matcher.group(2));
+                    turnAngle = Double.parseDouble(matcher.group(3));
                 }
             }
             in.close();
