@@ -9,13 +9,13 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4859.rover;
+package org.usfirst.frc4859.Rover;
 
-import org.usfirst.frc4859.rover.commands.*;
+import org.usfirst.frc4859.Rover.commands.*;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc4859.rover.subsystems.*;
+import org.usfirst.frc4859.Rover.subsystems.*;
 
 
 /**

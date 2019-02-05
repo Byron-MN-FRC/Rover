@@ -9,7 +9,7 @@
 // it from being updated in the future.
 
 
-package org.usfirst.frc4859.rover.commands;
+package org.usfirst.frc4859.Rover.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
@@ -19,11 +19,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc4859.rover.Robot;
-import org.usfirst.frc4859.rover.utility.*;
-import org.usfirst.frc4859.rover.utility.VisionTrackingPIDSource.DataSource;
+import org.usfirst.frc4859.Rover.Robot;
+import org.usfirst.frc4859.Rover.utility.*;
+import org.usfirst.frc4859.Rover.utility.VisionTrackingPIDSource.DataSource;
 import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc4859.rover.Robot;
+import org.usfirst.frc4859.Rover.Robot;
 
 /**
  *
