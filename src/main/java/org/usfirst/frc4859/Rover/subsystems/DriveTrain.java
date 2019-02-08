@@ -137,15 +137,6 @@ public class DriveTrain extends Subsystem {
         mecanumDrive.driveCartesian(xSpeed, ySpeed, zSpeed);
     }
 
-    public void driveTotargetWithLidar(){
-        if (lidarSensor.ReadMeasurements())
-        {
-            SmartDashboard.putNumber("Lidar Turn Angle", lidarSensor.turnAngle);
-            SmartDashboard.putNumber("Lidar left Dist", lidarSensor.leftDistmm);
-            SmartDashboard.putNumber("Lidar right Dist", lidarSensor.rightDistmm);
-        }
-    }
-
 
     public void driveStop() {
         mecanumDrive.driveCartesian(0,0,0,0);

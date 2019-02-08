@@ -6,14 +6,18 @@ import java.util.regex.Pattern;
 import java.io.InputStreamReader;
 
 public class Duallidar {
-    public int leftDistmm;
-    public int rightDistmm;
-    public double turnAngle;
-    public boolean readSuccess;
+    public static int leftDistmm;
+    public static int rightDistmm;
+    public static double turnAngle;
+    public static boolean readSuccess;
 
-    public boolean ReadMeasurements(){   
+    public static boolean RefreshTrackingData(){ 
+        boolean success = false;  
         Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),([-+]?\\d+\\.\\d+)\\]\\]\\]");
         Matcher matcher;
+        int leftDist = -9999;
+        int rightDist = -9999;
+        double angle = -9999.0;
         try {
             URL lidarURL = new URL("http://10.48.59.17/");
             String inputLine;
@@ -21,10 +25,13 @@ public class Duallidar {
             while ((inputLine = in.readLine()) != null) {
                 //System.out.println(inputLine);
                 matcher = pattern.matcher(inputLine);
-                while(matcher.find()) {    
-                    leftDistmm = Integer.parseInt(matcher.group(1));
-                    rightDistmm = Integer.parseInt(matcher.group(2));
-                    turnAngle = Double.parseDouble(matcher.group(3));
+                if (matcher.find()) {    
+                    leftDist = Integer.parseInt(matcher.group(1));
+                    rightDist = Integer.parseInt(matcher.group(2));
+                    angle = Double.parseDouble(matcher.group(3));
+                    if ((leftDist  < 0) || (leftDist  > 8100)) { leftDist  = -9999; turnAngle = -9999.0; }
+                    if ((rightDist < 0) || (rightDist > 8100)) { rightDist = -9999; turnAngle = -9999.0; }
+                    success = true;
                 }
             }
             in.close();
@@ -32,16 +39,18 @@ public class Duallidar {
          
          catch (Exception e) {
                 System.out.println(e.getMessage());
-                return false;
+                success = false;
         }
-         
-        return true;
+        
+        // the right, left, and turn will be set to the value from the sensor or -9999 if not able to read.
+        rightDistmm = rightDist;
+        leftDistmm  = leftDist;
+        turnAngle   = angle;
+        return success;
     }
 
      
-    public boolean Reset() {
-        Pattern pattern = Pattern.compile("\\[\\[\\[(\\d+),(\\d+),(\\d+\\.\\d+)\\]\\]\\]");
-        Matcher matcher;
+    public static boolean Reset() {
         try {
             URL lidarURL = new URL("http://10.48.59.17?reset");
             String inputLine;
@@ -49,19 +58,13 @@ public class Duallidar {
             while ((inputLine = in.readLine()) != null) {
             }
             in.close();
-         }
+        }
          
-         catch (Exception e) {
-                System.out.println(e.getMessage());
-                return false;
-         }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
          
         return true;
         }
-    
-    
-    public void Duallidar() {
-
-    }
-
 }
