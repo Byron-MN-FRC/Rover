@@ -954,7 +954,7 @@ Children:
       Commands: !!robotbuilder.data.properties.ListProperty
         default: []
         name: Commands
-        validators: &id033 [List]
+        validators: &id025 [List]
         value:
         - &id022 !!robotbuilder.data.CommandGroupEntry
           command:
@@ -1023,7 +1023,7 @@ Children:
     Base: Command Group
     Name: StartClimb
   - Children: []
-    Properties: &id029
+    Properties: &id026
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1036,16 +1036,16 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Catapult}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id025 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id025
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: FireCatapult
   - Children: []
-    Properties: &id031
+    Properties: &id027
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1058,10 +1058,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Catapult}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id026 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id026
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
@@ -1078,40 +1078,20 @@ Children:
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id027 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id027
+        value: []
       Commands: !!robotbuilder.data.properties.ListProperty
-        default: &id034
-        - &id032 !!robotbuilder.data.CommandGroupEntry
+        default: []
+        name: Commands
+        validators: *id025
+        value:
+        - &id028 !!robotbuilder.data.CommandGroupEntry
           command:
-            base: &id030
-              help: A command specifies an action that the robot can perform.
-              name: Command
-              properties:
-              - !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-                name: Requires, type: Subsystem, validators: null, value: None}
-              - !!robotbuilder.data.properties.BooleanProperty {default: true, name: Button on SmartDashboard,
-                validators: null, value: true}
-              - !!robotbuilder.data.properties.ParametersProperty
-                default: []
-                name: Parameters
-                validators: null
-                value: []
-              - !!robotbuilder.data.properties.ParameterSetProperty
-                default: &id028 []
-                name: Parameter presets
-                validators: null
-                value: *id028
-              - !!robotbuilder.data.properties.BooleanProperty {default: false, name: Run When Disabled,
-                validators: null, value: false}
-              - !!robotbuilder.data.properties.BooleanProperty {default: false, name: Autonomous Selection,
-                validators: null, value: false}
-              supports: {}
-              type: Command
+            base: *id020
             name: FireCatapult
-            properties: *id029
+            properties: *id026
           hasMatch: true
           order: Sequential
           parameters:
@@ -1122,9 +1102,9 @@ Children:
           previous: null
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id030
+            base: *id020
             name: RetractCatapult
-            properties: *id031
+            properties: *id027
           hasMatch: true
           order: Sequential
           parameters:
@@ -1132,10 +1112,7 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id032
-        name: Commands
-        validators: *id033
-        value: *id034
+          previous: *id028
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group

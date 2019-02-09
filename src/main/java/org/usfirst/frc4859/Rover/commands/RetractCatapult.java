@@ -48,27 +48,27 @@ public class RetractCatapult extends Command {
     @Override
     protected void initialize() {
         double delay = 1.5;
-    speed = Constants.kDownSpeed;
-    if (speed > 1) {  speed = .15; }
-    System.out.println("DownSpeed = " + speed);
-    time = Constants.kDownTime;
-    if (time > 1.5) {  time = .5; }
-    System.out.println("Downtime = " + time);
-    Timer.delay(delay);
-    setTimeout(time + delay);
-        }
+        speed = Constants.kDownSpeed;
+        if (speed > 1) {  speed = 1; }
+        System.out.println("DownSpeed = " + speed);
+        time = Constants.kDownTime;
+        if (time > 1.5) {  time = 1.5; }
+        System.out.println("Downtime = " + time);
+        Timer.delay(delay);
+        setTimeout(time + delay);
+    }
     
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-    Robot.catapult.move(-speed);
+        Robot.catapult.move(-speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true
