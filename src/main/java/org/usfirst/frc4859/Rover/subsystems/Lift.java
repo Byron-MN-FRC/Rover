@@ -77,6 +77,7 @@ public class Lift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void liftToHeight(String position) {
+        System.out.println("liftToHeight: " + position);
     	liftMotor.set(ControlMode.MotionMagic, Constants.liftPosition.get(position)); 
     }
 

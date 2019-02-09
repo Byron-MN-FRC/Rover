@@ -4,6 +4,9 @@
 
 package org.usfirst.frc4859.Rover;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -46,4 +49,12 @@ public class Constants {
 	public static final double kDownSpeed = .15; 
 	public static final double kBallAquireSpeed = .2;
 	public static String kLiftHeight = "normal";
+
+	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
+
+		{
+			put("normal", new Integer(0));
+			put("cargo", new Integer(1500));
+			put("rocket", new Integer (3000));
+		}};
 }

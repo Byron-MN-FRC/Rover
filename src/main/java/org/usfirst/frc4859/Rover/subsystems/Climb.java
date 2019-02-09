@@ -55,7 +55,7 @@ public class Climb extends Subsystem {
         addChild("kickStandSolenoid",kickStandSolenoid);
         
         
-        feetMotor = new WPI_TalonSRX(8);
+        feetMotor = new WPI_TalonSRX(7);
         
         
         
