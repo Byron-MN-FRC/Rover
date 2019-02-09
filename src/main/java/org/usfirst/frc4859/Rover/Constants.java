@@ -6,6 +6,8 @@ package org.usfirst.frc4859.Rover;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 //import org.usfirst.frc4859.Rover.Gains;
 
 public class Constants {
@@ -35,9 +37,12 @@ public class Constants {
 	public static final Gains kGains = new Gains(0.2, 0.0, 0.0, 0.2, 0, 1.0);
 	
 	public static TalonSRX kFeetMotor;
+
+	public static DoubleSolenoid kGravityShifterSolenoid;
 	//speeds for catapult
 	public static final double kUpSpeed = .45;
 	public static final double kUpTime = .45;
 	public static final double kDownTime = .5;
 	public static final double kDownSpeed = .15; 
+	public static final double kBallAquireSpeed = .2;
 }

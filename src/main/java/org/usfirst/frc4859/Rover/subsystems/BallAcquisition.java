@@ -12,6 +12,7 @@
 package org.usfirst.frc4859.Rover.subsystems;
 
 
+import org.usfirst.frc4859.Rover.Constants;
 import org.usfirst.frc4859.Rover.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -87,11 +88,12 @@ public class BallAcquisition extends Subsystem {
     public void aquireRetract() {
         System.out.println("aquireRetract");
         deployPiston.set(Value.kReverse);
+        ballMotor.set(Constants.kBallAquireSpeed);
     
     }
     public void aquireBall() {
         System.out.println("aquireBall");
-        ballMotor.set(.2);
+        ballMotor.set(Constants.kBallAquireSpeed);
     }
     public void aquireStop() {
         System.out.println("aquireStop");

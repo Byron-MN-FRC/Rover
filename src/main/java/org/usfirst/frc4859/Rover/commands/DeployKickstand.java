@@ -38,13 +38,13 @@ public class DeployKickstand extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        System.out.println("Deploy kickstand");
-        Robot.climb.deployKickstand();
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+         System.out.println("Deploy kickstand");
+        Robot.climb.deployKickstand();
     }
 
     // Make this return true when this Command no longer needs to run execute()

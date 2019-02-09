@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4859.Rover.commands.*;
 import org.usfirst.frc4859.Rover.subsystems.*;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -124,6 +125,8 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        Constants.kGravityShifterSolenoid.set(Value.kReverse);
+
     }
 
     /**
