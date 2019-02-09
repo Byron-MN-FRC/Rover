@@ -45,4 +45,5 @@ public class Constants {
 	public static final double kDownTime = .5;
 	public static final double kDownSpeed = .15; 
 	public static final double kBallAquireSpeed = .2;
+	public static String kLiftHeight = "normal";
 }
