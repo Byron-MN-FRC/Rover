@@ -3,8 +3,10 @@
  */
 
 package org.usfirst.frc4859.Rover;
-
+import java.util.HashMap;
+import java.util.Map;
 //import org.usfirst.frc4859.Rover.Gains;
+
 
 public class Constants {
 	/**
@@ -30,5 +32,13 @@ public class Constants {
 	 * Gains used in Motion Magic, to be adjusted accordingly
      * Gains(kp, ki, kd, kf, izone, peak output);
      */
-    public static final Gains kGains = new Gains(0.2, 0.0, 0.0, 0.2, 0, 1.0);
+	public static final Gains kGains = new Gains(0.2, 0.0, 0.0, 0.2, 0, 1.0);
+	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
+
+	{
+		put("normal", new Integer(0));
+		put("cargo", new Integer(0));
+		put("rocket", new Integer (0));
+	}};
 }
+
