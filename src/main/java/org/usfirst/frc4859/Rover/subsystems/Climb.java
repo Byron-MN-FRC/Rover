@@ -55,7 +55,7 @@ public class Climb extends Subsystem {
         addChild("kickStandSolenoid",kickStandSolenoid);
         
         
-        feetMotor = new WPI_TalonSRX(8);
+        feetMotor = new WPI_TalonSRX(7);
         
         
         
@@ -97,11 +97,14 @@ public class Climb extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-
+    public void kickstandup() {
+        System.out.println("kickstand up");
+        kickStandSolenoid.set(Value.kForward);
+    }
     //Method for deploying kickstand
     public void deployKickstand() {
          System.out.println("deployKickstand");
-         kickStandSolenoid.set(Value.kForward);
+         kickStandSolenoid.set(Value.kReverse);
     }
     //Method for pushing drivetrain forward
     public void shiftGravity() {
