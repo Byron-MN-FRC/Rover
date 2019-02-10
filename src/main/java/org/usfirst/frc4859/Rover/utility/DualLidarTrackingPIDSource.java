@@ -1,6 +1,7 @@
 package org.usfirst.frc4859.Rover.utility;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DualLidarTrackingPIDSource implements PIDSource {
 
@@ -49,6 +50,7 @@ public class DualLidarTrackingPIDSource implements PIDSource {
             if (right != 9999) { angle =  45.0; }  // slide to the left
         }
       }  
+      SmartDashboard.putNumber("LidarAngle", angle);
       return angle;
   }
 }
