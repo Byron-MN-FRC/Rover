@@ -99,7 +99,7 @@ public class OI {
         button2A = new JoystickButton(joystick, 2);
         button2A.whenPressed(new DeployAcquisition());
         button5FM = new JoystickButton(joystick, 5);
-        button5FM.whenPressed(new FlipMode());
+        button5FM.toggleWhenPressed(new FlipMode());
         button4LLT = new JoystickButton(joystick, 4);
         button4LLT.whileHeld(new DriveToVisionTarget());
         button9FP = new JoystickButton(joystick, 9);
