@@ -117,6 +117,7 @@ public class DriveToVisionTarget extends Command {
     @Override
     protected void initialize() {
         LimelightUtility.RefreshTrackingData();
+        LimelightUtility.EnableDriverCamera(false);
         System.out.println("DriveToVisiontarget initialize()");
         approachController.reset();
         approachController.setInputRange(0, 5);
@@ -141,7 +142,7 @@ public class DriveToVisionTarget extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        UpdateSmartDashboardValues();
+        //UpdateSmartDashboardValues();
 
         if (LimelightUtility.ValidTargetFound()){
             Robot.driveTrain.driveToTargetWithVision(
@@ -171,6 +172,7 @@ public class DriveToVisionTarget extends Command {
         approachController.disable();
         rotationController.disable();
         side2SideController.disable();
+        LimelightUtility.EnableDriverCamera(true);
     }
 
     // Called when another command which requires one or more of the same
