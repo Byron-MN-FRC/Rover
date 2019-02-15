@@ -342,7 +342,7 @@ Children:
         validators: null
         value: *id006
     Base: Subsystem
-    Name: Rocket
+    Name: Lift
   Properties: {}
   Base: Subsystems
   Name: Subsystems
@@ -370,15 +370,15 @@ Children:
           name: Command
           type: Command
           validators: &id016 [TypeDropdownSelected]
-          value: DriveToVisionTarget
+          value: StartClimb
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: &id017 [whileHeld, whenPressed, whenReleased]
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
       Base: Joystick Button
-      Name: button6VT
+      Name: button6CL
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -397,7 +397,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '5'
+          value: '9'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -411,7 +411,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: button5FP
+      Name: button9FP
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -432,15 +432,15 @@ Children:
           name: Command
           type: Command
           validators: *id016
-          value: LogLimelightValues
+          value: DriveToVisionTarget
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: whileHeld
           name: When to Run
           validators: null
-          value: whenPressed
+          value: whileHeld
       Base: Joystick Button
-      Name: button4LLV
+      Name: button4LLT
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -455,7 +455,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '9'
+          value: '5'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -469,7 +469,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: button9FM
+      Name: button5FM
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -490,7 +490,7 @@ Children:
           name: Command
           type: Command
           validators: *id016
-          value: DeployCatapult
+          value: AcquisitionTest
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: whileHeld
@@ -498,7 +498,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: button2LC
+      Name: button2A
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -548,15 +548,15 @@ Children:
           name: Command
           type: Command
           validators: *id016
-          value: AcquisitionTest
+          value: DeployCatapult
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenPressed
       Base: Joystick Button
-      Name: button1AB
+      Name: button1DC
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -600,7 +600,7 @@ Children:
           default: '1'
           name: Button
           validators: null
-          value: '1'
+          value: '2'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
@@ -614,7 +614,7 @@ Children:
           validators: null
           value: whenReleased
       Base: Joystick Button
-      Name: button1AR
+      Name: button2AR
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: ['0', '1', '2', '3', '4', '5']
@@ -881,7 +881,7 @@ Children:
     Base: Command
     Name: AquireRetract
   - Children: []
-    Properties: &id035
+    Properties: &id036
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -903,7 +903,7 @@ Children:
     Base: Command
     Name: AquireBall
   - Children: []
-    Properties: &id034
+    Properties: &id035
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1051,7 +1051,7 @@ Children:
     Base: Command Group
     Name: StartClimb
   - Children: []
-    Properties: &id029
+    Properties: &id031
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1073,7 +1073,7 @@ Children:
     Base: Command
     Name: FireCatapult
   - Children: []
-    Properties: &id031
+    Properties: &id033
       Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Autonomous Selection, validators: null, value: false}
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1141,8 +1141,26 @@ Children:
                 validators: null, value: false}
               supports: {}
               type: Command
-            name: FireCatapult
-            properties: *id029
+            name: LiftToHeight
+            properties: &id038
+              Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {
+                default: false, name: Autonomous Selection, validators: null, value: false}
+              Parameters: !!robotbuilder.data.properties.ParametersProperty
+                default: []
+                name: Parameters
+                validators: null
+                value: []
+              Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {
+                default: false, name: Run When Disabled, validators: null, value: false}
+              Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+                name: Requires, type: Subsystem, validators: null, value: Lift}
+              Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+                default: &id029 []
+                name: Parameter presets
+                validators: null
+                value: *id029
+              Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {
+                default: true, name: Button on SmartDashboard, validators: null, value: true}
           hasMatch: true
           order: Sequential
           parameters:
@@ -1151,10 +1169,10 @@ Children:
             validators: null
             value: []
           previous: null
-        - !!robotbuilder.data.CommandGroupEntry
+        - &id034 !!robotbuilder.data.CommandGroupEntry
           command:
             base: *id030
-            name: RetractCatapult
+            name: FireCatapult
             properties: *id031
           hasMatch: true
           order: Sequential
@@ -1164,6 +1182,19 @@ Children:
             validators: null
             value: []
           previous: *id032
+        - !!robotbuilder.data.CommandGroupEntry
+          command:
+            base: *id030
+            name: RetractCatapult
+            properties: *id033
+          hasMatch: true
+          order: Sequential
+          parameters:
+            default: []
+            name: ParametersProperty
+            validators: null
+            value: []
+          previous: *id034
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
@@ -1180,17 +1211,20 @@ Children:
       Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Run When Disabled, validators: null, value: false}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id033 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id033
+        value: []
       Commands: !!robotbuilder.data.properties.ListProperty
-        default: &id037
-        - &id036 !!robotbuilder.data.CommandGroupEntry
+        default: []
+        name: Commands
+        validators: *id027
+        value:
+        - &id037 !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id020
+            base: *id030
             name: AquireDeploy
-            properties: *id034
+            properties: *id035
           hasMatch: true
           order: Sequential
           parameters:
@@ -1201,9 +1235,9 @@ Children:
           previous: null
         - !!robotbuilder.data.CommandGroupEntry
           command:
-            base: *id020
+            base: *id030
             name: AquireBall
-            properties: *id035
+            properties: *id036
           hasMatch: true
           order: Sequential
           parameters:
@@ -1211,10 +1245,7 @@ Children:
             name: ParametersProperty
             validators: null
             value: []
-          previous: *id036
-        name: Commands
-        validators: *id027
-        value: *id037
+          previous: *id037
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command Group
@@ -1233,10 +1264,10 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Climb}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id038 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id038
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
@@ -1255,14 +1286,18 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: Climb}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
-        default: &id039 []
+        default: []
         name: Parameter presets
         validators: null
-        value: *id039
+        value: []
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
-    Name: kickstandup
+    Name: KickStandUp
+  - Children: []
+    Properties: *id038
+    Base: Command
+    Name: LiftToHeight
   Properties: {}
   Base: Commands
   Name: Commands
@@ -1284,10 +1319,12 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\',
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\heinz\'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\FRCProjects',
-    extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_Git'}
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Emma
+      Cockram\', extension: null, folder: true, name: Wiring file location, validators: null,
+    value: 'C:\Users\heinz\'}
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Emma
+      Cockram\FRCProjects', extension: null, folder: true, name: Export Directory,
+    validators: null, value: 'C:\FRC_Git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: None}
 Base: Robot
