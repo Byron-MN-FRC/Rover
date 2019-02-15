@@ -144,10 +144,10 @@ public class DriveToVisionTarget extends Command {
         UpdateSmartDashboardValues();
 
         if (LimelightUtility.ValidTargetFound()){
-            //Robot.driveTrain.driveToTargetWithVision(
-            //    this.pidOutSide2Side, this.pidOutApproach, this.pidOutRotation);
             Robot.driveTrain.driveToTargetWithVision(
-                this.pidOutSide2Side, 0, this.pidOutRotation);
+               this.pidOutSide2Side, this.pidOutApproach, this.pidOutRotation);
+            //Robot.driveTrain.driveToTargetWithVision(
+            //    this.pidOutSide2Side, 0, this.pidOutRotation);
             }
         else
         {

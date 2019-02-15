@@ -36,7 +36,7 @@ public class Constants {
 	public static final Gains kGains = new Gains(0.2, 0.0, 0.0, 0.2, 0, 1.0);
 	
 	// Speeds for catapult & aquisition
-	public static final double kUpSpeed = .45;
+	public static final double kUpSpeed = .55;
 	public static final double kUpTime = .45;
 	public static final double kDownTime = .5;
 	public static final double kDownSpeed = .15; 
