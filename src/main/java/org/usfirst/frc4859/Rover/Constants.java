@@ -4,9 +4,8 @@
 
 package org.usfirst.frc4859.Rover;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import java.util.HashMap;
+import java.util.Map;
 
 //import org.usfirst.frc4859.Rover.Gains;
 
@@ -36,13 +35,19 @@ public class Constants {
      */
 	public static final Gains kGains = new Gains(0.2, 0.0, 0.0, 0.2, 0, 1.0);
 	
-	public static TalonSRX kFeetMotor;
-
-	public static DoubleSolenoid kGravityShifterSolenoid;
-	//speeds for catapult
+	// Speeds for catapult & aquisition
 	public static final double kUpSpeed = .45;
 	public static final double kUpTime = .45;
 	public static final double kDownTime = .5;
 	public static final double kDownSpeed = .15; 
 	public static final double kBallAquireSpeed = .2;
+
+	// Lift
+	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
+
+		{
+		   put("normal", new Integer(0));
+		   put("cargo", new Integer(1500));
+		   put("rocket", new Integer (3000));
+	}};	
 }

@@ -125,7 +125,7 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Constants.kGravityShifterSolenoid.set(Value.kReverse);
+        Robot.climb.getKickstand().set(Value.kReverse);
 
     }
 
@@ -135,10 +135,10 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-        SmartDashboard.putNumber("SensorVel", Constants.kFeetMotor.getSelectedSensorVelocity(Constants.kPIDLoopIdx));
-        SmartDashboard.putNumber("SensorPos",  Constants.kFeetMotor.getSelectedSensorPosition(Constants.kPIDLoopIdx));
-        SmartDashboard.putNumber("MotorOutputPercent",  Constants.kFeetMotor.getMotorOutputPercent());
-        SmartDashboard.putNumber("ClosedLoopError",  Constants.kFeetMotor.getClosedLoopError(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("SensorVel", Robot.climb.getFeetMotor().getSelectedSensorVelocity(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("SensorPos",  Robot.climb.getFeetMotor().getSelectedSensorPosition(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("MotorOutputPercent",  Robot.climb.getFeetMotor().getMotorOutputPercent());
+        SmartDashboard.putNumber("ClosedLoopError",  Robot.climb.getFeetMotor().getClosedLoopError(Constants.kPIDLoopIdx));
     
     }
 }
