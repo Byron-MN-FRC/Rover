@@ -155,11 +155,8 @@ public class DriveTrain extends Subsystem {
         int sensorPort2 = rightKickstandIRSensor.getValue();
         SmartDashboard.putNumber("SensorReading(2)", sensorPort2);
        
-        if (sensorPort1 <= 200 && sensorPort2 <= 200) {
-            return true;
-        }
+        return ((sensorPort1 <= 200) && (sensorPort2 <= 200));
 
-        return false;
 
     }
 
