@@ -1,6 +1,6 @@
 package org.usfirst.frc4859.Rover.utility;
 
-import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.*;
 
 
 public class LimelightUtility {
@@ -67,5 +67,43 @@ public class LimelightUtility {
         System.out.print("TargetHorizSideLengthRoughBox   =");System.out.println(thoriz);
         System.out.print("TargetVertSideLengthRoughbox    =");System.out.println(tvert);
         System.out.println("######################################################");
+    }
+
+    static public void WriteDouble(String tableField, double fieldValue){
+        NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
+        System.out.print("Setting Limelight value:  ");
+        System.out.print(tableField);
+        System.out.print(" = ");
+        System.out.println(fieldValue);
+        table.getEntry(tableField).setNumber(fieldValue);
+    }
+
+    static public void EnableDriverCamera(Boolean value) {
+        WriteDouble("camMode", value ? 1 : 0); // if value true, write 1, otherwise write 2
+    }
+
+    static public enum StreamMode{
+        Standard, PIPMain, PIPSecondary
+    }
+
+    static public void StreamingMode(StreamMode mode) {
+        double value;
+        switch (mode) {
+            case Standard:     value = 0; break;
+            case PIPMain:      value = 1; break;
+            case PIPSecondary: value = 2; break;
+            default: value = 0;
+        }
+        WriteDouble("stream", value);
+    }
+
+    static public void SelectPipeline(int pipeline) {
+        if (pipeline < 0 || pipeline > 9) {
+            System.out.print("SelectPipeline: Invalid pipeline requested: ");
+            System.out.println(pipeline);
+        }
+        else {
+            WriteDouble("pipeline", pipeline);
+        }
     }
 }
