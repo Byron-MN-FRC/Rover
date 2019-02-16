@@ -634,7 +634,9 @@ Children:
           default: []
           name: Parameters
           validators: null
-          value: []
+          value:
+          - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: position,
+            type: int, value: '1'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: '1'
@@ -646,7 +648,7 @@ Children:
           name: Command
           type: Command
           validators: *id018
-          value: DeployCatapult
+          value: LiftSetPosition
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id019
           default: whileHeld
@@ -654,7 +656,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: cargoBallDeliver
+      Name: btnCargoBallDeliver
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -663,7 +665,9 @@ Children:
           default: []
           name: Parameters
           validators: null
-          value: []
+          value:
+          - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: position,
+            type: int, value: '0'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: '1'
@@ -675,7 +679,7 @@ Children:
           name: Command
           type: Command
           validators: *id018
-          value: DeployCatapult
+          value: LiftSetPosition
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id019
           default: whileHeld
@@ -683,7 +687,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: lowRocketDeliver
+      Name: btnLiftPosLowRock
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -692,19 +696,21 @@ Children:
           default: []
           name: Parameters
           validators: null
-          value: []
+          value:
+          - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: position,
+            type: int, value: '2'}
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id017
           default: '1'
           name: Button
           validators: null
-          value: '4'
+          value: '3'
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
           type: Command
           validators: *id018
-          value: DeployCatapult
+          value: LiftSetPosition
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id019
           default: whileHeld
@@ -712,7 +718,7 @@ Children:
           validators: null
           value: whenPressed
       Base: Joystick Button
-      Name: mediumRocketDeliver
+      Name: btnMedRocketDeliver
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -1386,6 +1392,29 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: ClimbMode
+  - Children: []
+    Properties:
+      Autonomous Selection: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Autonomous Selection, validators: null, value: false}
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value:
+        - !!robotbuilder.data.properties.ParameterDescriptor {name: position, type: int}
+      Run When Disabled: !!robotbuilder.data.properties.BooleanProperty {default: false,
+        name: Run When Disabled, validators: null, value: false}
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: Lift}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: &id042 []
+        name: Parameter presets
+        validators: null
+        value: *id042
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: LiftSetPosition
   Properties: {}
   Base: Commands
   Name: Commands
