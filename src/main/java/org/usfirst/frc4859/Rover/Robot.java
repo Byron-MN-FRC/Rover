@@ -127,7 +127,7 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Robot.climb.getKickstand().set(Value.kReverse);
+        //Robot.climb.getKickstand().set(Value.kReverse);
 
     }
 
@@ -143,15 +143,17 @@ public class Robot extends TimedRobot {
         // SmartDashboard.putNumber("MotorOutputPercent",  Robot.climb.getFeetMotor().getMotorOutputPercent());
         // SmartDashboard.putNumber("ClosedLoopError",  Robot.climb.getFeetMotor().getClosedLoopError(Constants.kPIDLoopIdx));
         //SmartDashboard.putBoolean("Vision Taget Found", LimelightUtility.ValidTargetFound());
-        int smode = (int) SmartDashboard.getNumber("Streaming Mode", 0);
-        switch (smode){
-            case 0: LimelightUtility.StreamingMode(StreamMode.Standard);
-                break;
-            case 1: LimelightUtility.StreamingMode(StreamMode.PIPMain);
-                break;
-            case 2: LimelightUtility.StreamingMode(StreamMode.PIPSecondary);
-                break;
-            default: LimelightUtility.StreamingMode(StreamMode.Standard);
-        }
+        // int smode = (int) SmartDashboard.getNumber("Streaming Mode", 0);
+        // switch (smode){
+        //     case 0: LimelightUtility.StreamingMode(StreamMode.Standard);
+        //         break;
+        //     case 1: LimelightUtility.StreamingMode(StreamMode.PIPMain);
+        //         break;
+        //     case 2: LimelightUtility.StreamingMode(StreamMode.PIPSecondary);
+        //         break;
+        //     default: LimelightUtility.StreamingMode(StreamMode.Standard);
+        // }
+        SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
+        SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
     }
 }

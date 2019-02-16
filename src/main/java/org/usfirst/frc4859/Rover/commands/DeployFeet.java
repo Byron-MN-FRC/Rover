@@ -50,10 +50,8 @@ public class DeployFeet extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut();
-        // if (Robot.climb.getProximity() >= 4000) {
-        //     return true;
-        // } else return false;
+        System.out.println("Proximity =" + Robot.climb.getProximity());
+        return isTimedOut() || !Robot.climb.cMode || (Robot.climb.getProximity() >= 4000);
     }
     
 
