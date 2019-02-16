@@ -76,7 +76,7 @@ public class OI {
         xBox = new Joystick(1);
         
         climbReady = new JoystickButton(xBox, 10);
-        climbReady.toggleWhenPressed(new ClimbMode());
+        climbReady.whenPressed(new ClimbMode());
         mediumRocketDeliver = new JoystickButton(xBox, 4);
         mediumRocketDeliver.whenPressed(new DeployCatapult());
         lowRocketDeliver = new JoystickButton(xBox, 2);
@@ -96,7 +96,7 @@ public class OI {
         button2A = new JoystickButton(joystick, 2);
         button2A.whenPressed(new DeployAcquisition());
         button5FM = new JoystickButton(joystick, 5);
-        button5FM.toggleWhenPressed(new FlipMode());
+        button5FM.whenPressed(new FlipMode());
         button4LLT = new JoystickButton(joystick, 4);
         button4LLT.whileHeld(new DriveToVisionTarget());
         button9FP = new JoystickButton(joystick, 9);
