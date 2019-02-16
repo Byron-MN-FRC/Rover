@@ -23,6 +23,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import org.usfirst.frc4859.Rover.commands.DriveWithJoystick;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
@@ -146,6 +147,17 @@ public class DriveTrain extends Subsystem {
         mecanumDrive.driveCartesian(0,0,0,0);
     }
     
+    public boolean isVisible(){
+        int sensorPort1 = leftKickstandIRSensor.getValue();
+        SmartDashboard.putNumber("SensorReading(1)", sensorPort1);
+      
+        int sensorPort2 = rightKickstandIRSensor.getValue();
+        SmartDashboard.putNumber("SensorReading(2)", sensorPort2);
+       
+        return ((sensorPort1 <= 200) && (sensorPort2 <= 200));
+
+
+    }
   /* public void driveForwardProximity(double speed) {
        if (lidarProximity.get()) {
            mecanumDrive.driveCartesian(0, 0, 0, 0);
