@@ -115,4 +115,22 @@ public class Lift extends Subsystem {
         /* Zero the sensor */
         liftMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
     }
+
+    public void liftToHeight(String position) {
+        System.out.println("liftToHeight: " + position);
+     	liftMotor.set(ControlMode.MotionMagic, Constants.liftPosition.get(position)); 
+    }
+
+    
+    public void liftUp(double inputSpeed){
+        System.out.println("lift up");
+        liftMotor.set(inputSpeed);
+    }
+   
+   
+    public void liftStop(){
+       System.out.println("lift stop");
+       liftMotor.set(0);
+    }
+
 }
