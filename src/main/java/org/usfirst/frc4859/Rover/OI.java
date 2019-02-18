@@ -83,7 +83,7 @@ public class OI {
         cargoBallDeliver = new JoystickButton(xBox, 1);
         cargoBallDeliver.whenPressed(new DeployCatapult());
         joystick = new Joystick(0);
-        
+   
         btnDeployKickstand = new JoystickButton(joystick, 12);
         btnDeployKickstand.whenPressed(new DeployKickstand());
         btnStartClimb = new JoystickButton(joystick, 10);
