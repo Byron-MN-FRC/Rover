@@ -46,8 +46,21 @@ public class Constants {
 	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
 
 		{
-		   put("normal", new Integer(0));
-		   put("cargo", new Integer(1500));
-		   put("rocket", new Integer (3000));
+		   put("LowRocket", new Integer(0));
+		   put("Cargo", new Integer(1500));
+		   put("MiddleRocket", new Integer (3000));
 	}};	
+	
+    // Catapult Speed and Time
+    public static final Map<String, double[]> catapultVariables = new HashMap<String, double[]> () {
+
+	private static final long serialVersionUID = 1L;
+
+	{	   //name                           Speed     Time
+        put("Cargo",         new double[]  { .55	, .45	} );
+        put("LowRocket",  	 new double[]  { .60	, .55	} );
+        put("MiddleRocket",  new double[]  { .70    , .65	} );
+    
+    }};
+
 }
