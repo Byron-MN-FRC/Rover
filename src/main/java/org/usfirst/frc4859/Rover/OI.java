@@ -75,7 +75,7 @@ public class OI {
         xBox = new Joystick(1);
         
         climbReady = new JoystickButton(xBox, 10);
-        climbReady.toggleWhenPressed(new ClimbMode());
+        climbReady.whenPressed(new ClimbMode());
         mediumRocketDeliver = new JoystickButton(xBox, 4);
         mediumRocketDeliver.whenPressed(new DeployCatapult());
         lowRocketDeliver = new JoystickButton(xBox, 2);
