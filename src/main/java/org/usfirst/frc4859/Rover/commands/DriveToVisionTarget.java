@@ -120,9 +120,9 @@ public class DriveToVisionTarget extends Command {
         LimelightUtility.EnableDriverCamera(false);
         System.out.println("DriveToVisiontarget initialize()");
         approachController.reset();
-        approachController.setInputRange(0, 5);
+        approachController.setInputRange(0, 10);
         approachController.setOutputRange(0, 1);
-        approachController.setSetpoint(4);
+        approachController.setSetpoint(4.2);
         approachController.enable();
 
         rotationController.reset();

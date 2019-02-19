@@ -23,6 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4859.Rover.commands.*;
 import org.usfirst.frc4859.Rover.subsystems.*;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
+import org.usfirst.frc4859.Rover.utility.Duallidar;
 import org.usfirst.frc4859.Rover.utility.LimelightUtility;
 import org.usfirst.frc4859.Rover.utility.LimelightUtility.StreamMode;
 /**
@@ -155,5 +157,7 @@ public class Robot extends TimedRobot {
         // }
         SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
         SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
+        SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
+        SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
     }
 }
