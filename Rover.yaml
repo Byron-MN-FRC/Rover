@@ -1405,7 +1405,7 @@ Children:
         validators: null
         value: *id042
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: LowRocketHatch
   - Children: []
@@ -1427,7 +1427,7 @@ Children:
         validators: null
         value: *id043
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: CargoBall
   - Children: []
@@ -1449,7 +1449,7 @@ Children:
         validators: null
         value: *id044
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: CargoHatch
   - Children: []
@@ -1471,7 +1471,7 @@ Children:
         validators: null
         value: *id045
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
-        name: Button on SmartDashboard, validators: null, value: true}
+        name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: LowRocketBall
   Properties: {}

@@ -126,8 +126,8 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        //Robot.climb.getKickstand().set(Value.kReverse);
-
+        Robot.climb.getKickstand().set(Value.kForward);
+        Robot.climb.gravityShifterSolenoid.set(Value.kReverse);
     }
 
     /**
@@ -155,6 +155,9 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
         SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
         SmartDashboard.putString("Target", Robot.lift.target);
+        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.proximitySensor.getValue());
+        SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.leftKickstandIRSensor.getValue());
+        SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.rightKickstandIRSensor.getValue());
     }
 }
 
