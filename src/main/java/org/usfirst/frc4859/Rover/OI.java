@@ -95,9 +95,6 @@ public class OI {
         setCargoHatch = new JoystickButton(xBox, 1);
         setCargoHatch.whenPressed(new CargoHatch());
         joystick = new Joystick(0);
-        
-      //  btnDeployFeet = new JoystickButton(joystick, 12);
-       // btnDeployFeet.whenPressed(new DeployFeet());
         btnDeployKickstand = new JoystickButton(joystick, 12);
         btnDeployKickstand.whenPressed(new DeployKickstand());
         btnStartClimb = new JoystickButton(joystick, 10);
@@ -111,7 +108,7 @@ public class OI {
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
         btnFlipMode = new JoystickButton(joystick, 2);
-        btnFlipMode.whenPressed(new FlipMode());
+        btnFlipMode.toggleWhenPressed(new FlipMode());
         btnDeployCatapult = new JoystickButton(joystick, 1);
         btnDeployCatapult.whenPressed(new DeployCatapult());
 
