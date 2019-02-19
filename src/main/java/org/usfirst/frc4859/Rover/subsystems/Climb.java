@@ -136,11 +136,12 @@ public class Climb extends Subsystem {
        System.out.println("DeployFeet"); 
        
        /*4096 ticks/rev * 10 Rotations in either direction */
-        double targetPos = .6 * 4096 * 5.75;
-        System.out.println("Target position =" + targetPos);
-		feetMotor.set(ControlMode.MotionMagic, targetPos);
+       // double targetPos = .6 * 4096 * 5.75;
+       // System.out.println("Target position =" + targetPos);
+		//feetMotor.set(ControlMode.MotionMagic, targetPos);
          		/* Zero the sensor */
-		feetMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);  
+    //	feetMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs); 
+        feetMotor.set(.85);
         
     }
     
@@ -195,6 +196,8 @@ public class Climb extends Subsystem {
     // Get methods to put on dashboard, etc.
     public TalonSRX getFeetMotor() { return feetMotor; }
     public DoubleSolenoid getKickstand() { return kickStandSolenoid; }
+    public AnalogInput getProximitySensor() {return proximitySensor;}
+    public DoubleSolenoid getGravityShifterSolenoid() {return gravityShifterSolenoid;};
 }
 
 

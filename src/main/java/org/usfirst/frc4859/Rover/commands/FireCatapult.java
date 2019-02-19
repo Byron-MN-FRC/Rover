@@ -44,9 +44,11 @@ public class FireCatapult extends Command {
     @Override
     protected void initialize() {
         speed = Constants.kUpSpeed;
-        if (speed > 1) {  speed = 1; }
+     //speed = Constants.catapultVariables.get(Robot.lift.target)[0];
+     if (speed > 1) {  speed = 1; }
         System.out.println("UpSpeed = " + speed);
         time = Constants.kUpTime;
+      //time = Constants.catapultVariables.get(Robot.lift.target)[1];
         if (time > 1.5) {  time = 1.5; }
         System.out.println("Uptime = " + time);
         setTimeout(time);
