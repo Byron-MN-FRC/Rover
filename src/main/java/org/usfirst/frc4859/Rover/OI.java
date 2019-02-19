@@ -70,10 +70,10 @@ public class OI {
     public JoystickButton btnDriveVisionTarget;
     public JoystickButton btnLiftToHeight;
     public JoystickButton btnDeployAcquisition;
-    public JoystickButton btnDriveForProx;
     public JoystickButton btnStartClimb;
+    public JoystickButton btnDriveForProx;
     public JoystickButton btnDeployKickstand;
-    public JoystickButton btnStopAquisitoion;
+    public JoystickButton btnRetractAcquisition;
     public Joystick joystick;
     public JoystickButton setCargoHatch;
     public JoystickButton setCargoBall;
@@ -98,16 +98,16 @@ public class OI {
         setCargoHatch.whenPressed(new CargoHatch());
         joystick = new Joystick(0);
         
-        btnStopAquisitoion = new JoystickButton(joystick, 7);
-        btnStopAquisitoion.whenPressed(new AquireRetract());
+        btnRetractAcquisition = new JoystickButton(joystick, 6);
+        btnRetractAcquisition.whenReleased(new AquireRetract());
         btnDeployKickstand = new JoystickButton(joystick, 12);
         btnDeployKickstand.whenPressed(new DeployKickstand());
-        btnStartClimb = new JoystickButton(joystick, 10);
-        btnStartClimb.whenPressed(new StartClimb());
         btnDriveForProx = new JoystickButton(joystick, 9);
         btnDriveForProx.whenPressed(new DriveForwardProximity(0, 0));
+        btnStartClimb = new JoystickButton(joystick, 10);
+        btnStartClimb.whenPressed(new StartClimb());
         btnDeployAcquisition = new JoystickButton(joystick, 6);
-        btnDeployAcquisition.whenPressed(new DeployAcquisition());
+        btnDeployAcquisition.whileHeld(new DeployAcquisition());
         btnLiftToHeight = new JoystickButton(joystick, 4);
         btnLiftToHeight.whenPressed(new LiftToHeight());
         btnDriveVisionTarget = new JoystickButton(joystick, 3);

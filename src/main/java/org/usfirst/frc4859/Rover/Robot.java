@@ -127,7 +127,8 @@ public class Robot extends TimedRobot {
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         Robot.climb.getKickstand().set(Value.kForward);
-        Robot.climb.gravityShifterSolenoid.set(Value.kReverse);
+        Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
+        Robot.ballAcquisition.getAcquirePiston().set(Value.kReverse);
     }
 
     /**
