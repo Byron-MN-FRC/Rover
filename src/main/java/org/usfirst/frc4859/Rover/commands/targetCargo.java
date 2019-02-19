@@ -46,6 +46,7 @@ public class targetCargo extends Command {
     @Override
     protected void execute() {
         Robot.rocket.liftToHeight("cargo");
+        Robot.rocket.liftUp(1);
     }
 
 

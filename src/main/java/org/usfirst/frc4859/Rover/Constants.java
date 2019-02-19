@@ -37,8 +37,8 @@ public class Constants {
 
 	{
 		put("normal", new Integer(0));
-		put("cargo", new Integer(0));
-		put("rocket", new Integer (0));
+		put("cargo", new Integer(100));
+		put("rocket", new Integer (60));
 	}};
 }
 
