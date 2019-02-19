@@ -196,6 +196,8 @@ public class Climb extends Subsystem {
     // Get methods to put on dashboard, etc.
     public TalonSRX getFeetMotor() { return feetMotor; }
     public DoubleSolenoid getKickstand() { return kickStandSolenoid; }
+    public AnalogInput getProximitySensor() {return proximitySensor;}
+    
 }
 
 

@@ -23,10 +23,12 @@ import org.usfirst.frc4859.Rover.commands.LiftToHeight;
 import org.usfirst.frc4859.Rover.commands.LowRocketBall;
 import org.usfirst.frc4859.Rover.commands.LowRocketHatch;
 import org.usfirst.frc4859.Rover.commands.StartClimb;
+import org.usfirst.frc4859.Rover.commands.AquireRetract;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 
 /**
@@ -71,7 +73,7 @@ public class OI {
     public JoystickButton btnDriveForProx;
     public JoystickButton btnStartClimb;
     public JoystickButton btnDeployKickstand;
-    public JoystickButton btnDeployFeet;
+    public JoystickButton btnStopAquisitoion;
     public Joystick joystick;
     public JoystickButton setCargoHatch;
     public JoystickButton setCargoBall;
@@ -96,8 +98,8 @@ public class OI {
         setCargoHatch.whenPressed(new CargoHatch());
         joystick = new Joystick(0);
         
-      //  btnDeployFeet = new JoystickButton(joystick, 12);
-       // btnDeployFeet.whenPressed(new DeployFeet());
+        btnStopAquisitoion = new JoystickButton(joystick, 7);
+        btnStopAquisitoion.whenPressed(new AquireRetract());
         btnDeployKickstand = new JoystickButton(joystick, 12);
         btnDeployKickstand.whenPressed(new DeployKickstand());
         btnStartClimb = new JoystickButton(joystick, 10);

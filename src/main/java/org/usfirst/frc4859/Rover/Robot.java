@@ -155,9 +155,9 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
         SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
         SmartDashboard.putString("Target", Robot.lift.target);
-        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.proximitySensor.getValue());
-        SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.leftKickstandIRSensor.getValue());
-        SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.rightKickstandIRSensor.getValue());
+        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
+        SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.getLeftKickstandIRSensor().getValue());
+        SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
     }
 }
 
