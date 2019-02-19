@@ -141,7 +141,7 @@ public class Climb extends Subsystem {
 		//feetMotor.set(ControlMode.MotionMagic, targetPos);
          		/* Zero the sensor */
     //	feetMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs); 
-        feetMotor.set(.6);
+        feetMotor.set(.85);
         
     }
     
