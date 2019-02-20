@@ -39,11 +39,13 @@ public class CargoHatch extends Command {
     @Override
     protected void initialize() {
         Robot.lift.target = "CargoHatch";
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
