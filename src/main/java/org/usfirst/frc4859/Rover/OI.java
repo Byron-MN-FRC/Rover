@@ -11,11 +11,25 @@
 
 package org.usfirst.frc4859.Rover;
 
-import org.usfirst.frc4859.Rover.commands.*;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.usfirst.frc4859.Rover.commands.CargoBall;
+import org.usfirst.frc4859.Rover.commands.CargoHatch;
+import org.usfirst.frc4859.Rover.commands.DeployAcquisition;
+import org.usfirst.frc4859.Rover.commands.DeployCatapult;
+import org.usfirst.frc4859.Rover.commands.DeployKickstand;
+import org.usfirst.frc4859.Rover.commands.DriveForwardProximity;
+import org.usfirst.frc4859.Rover.commands.DriveToVisionTarget;
+import org.usfirst.frc4859.Rover.commands.FlipMode;
+import org.usfirst.frc4859.Rover.commands.LiftToHeight;
+import org.usfirst.frc4859.Rover.commands.LowRocketBall;
+import org.usfirst.frc4859.Rover.commands.LowRocketHatch;
+import org.usfirst.frc4859.Rover.commands.StartClimb;
+import org.usfirst.frc4859.Rover.commands.AquireRetract;
+import org.usfirst.frc4859.Rover.commands.ClimbMode;
+
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.*;
-import org.usfirst.frc4859.Rover.subsystems.*;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 
 
 /**
@@ -57,13 +71,15 @@ public class OI {
     public JoystickButton btnDriveVisionTarget;
     public JoystickButton btnLiftToHeight;
     public JoystickButton btnDeployAcquisition;
-    public JoystickButton btnDriveForProx;
     public JoystickButton btnStartClimb;
+    public JoystickButton btnDriveForProx;
     public JoystickButton btnDeployKickstand;
+    public JoystickButton btnRetractAcquisition;
     public Joystick joystick;
-    public JoystickButton cargoBallDeliver;
-    public JoystickButton lowRocketDeliver;
-    public JoystickButton mediumRocketDeliver;
+    public JoystickButton setCargoHatch;
+    public JoystickButton setCargoBall;
+    public JoystickButton setLowRocketBall;
+    public JoystickButton setLowRocketHatch;
     public JoystickButton climbReady;
     public Joystick xBox;
 
@@ -76,22 +92,26 @@ public class OI {
         
         climbReady = new JoystickButton(xBox, 10);
         climbReady.whenPressed(new ClimbMode());
-        mediumRocketDeliver = new JoystickButton(xBox, 4);
-        mediumRocketDeliver.whenPressed(new DeployCatapult());
-        lowRocketDeliver = new JoystickButton(xBox, 2);
-        lowRocketDeliver.whenPressed(new DeployCatapult());
-        cargoBallDeliver = new JoystickButton(xBox, 1);
-        cargoBallDeliver.whenPressed(new DeployCatapult());
+        setLowRocketHatch = new JoystickButton(xBox, 4);
+        setLowRocketHatch.whenPressed(new LowRocketHatch());
+        setLowRocketBall = new JoystickButton(xBox, 3);
+        setLowRocketBall.whenPressed(new LowRocketBall());
+        setCargoBall = new JoystickButton(xBox, 2);
+        setCargoBall.whenPressed(new CargoBall());
+        setCargoHatch = new JoystickButton(xBox, 1);
+        setCargoHatch.whenPressed(new CargoHatch());
         joystick = new Joystick(0);
-   
+        
+        btnRetractAcquisition = new JoystickButton(joystick, 6);
+        btnRetractAcquisition.whenReleased(new AquireRetract());
         btnDeployKickstand = new JoystickButton(joystick, 12);
         btnDeployKickstand.whenPressed(new DeployKickstand());
-        btnStartClimb = new JoystickButton(joystick, 10);
-        btnStartClimb.whenPressed(new StartClimb());
         btnDriveForProx = new JoystickButton(joystick, 9);
         btnDriveForProx.whenPressed(new DriveForwardProximity(0, 0));
+        btnStartClimb = new JoystickButton(joystick, 10);
+        btnStartClimb.whenPressed(new StartClimb());
         btnDeployAcquisition = new JoystickButton(joystick, 6);
-        btnDeployAcquisition.whenPressed(new DeployAcquisition());
+        btnDeployAcquisition.whileHeld(new DeployAcquisition());
         btnLiftToHeight = new JoystickButton(joystick, 4);
         btnLiftToHeight.whenPressed(new LiftToHeight());
         btnDriveVisionTarget = new JoystickButton(joystick, 3);

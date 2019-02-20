@@ -169,6 +169,9 @@ public class DriveTrain extends Subsystem {
        return lidarProximity.get();
     }
 */
+    public AnalogInput getLeftKickstandIRSensor(){return leftKickstandIRSensor;};
+    public AnalogInput getRightKickstandIRSensor(){return rightKickstandIRSensor;};
+
 
 }
 

@@ -47,7 +47,21 @@ public class Constants {
 
 		{
 		   put("normal", new Integer(0));
-		   put("cargo", new Integer(1500));
-		   put("rocket", new Integer (3000));
+		   put("cargo", new Integer(100));
+		   put("rocket", new Integer (60));
 	}};	
+
+	  // Catapult Speed and Time
+	  public static final Map<String, double[]> catapultVariables = new HashMap<String, double[]> () {
+
+		private static final long serialVersionUID = 1L;
+	
+		{	   //name                              UpSpeed   UpTime   DownSpeed  DownTime 
+			put("CargoBall",         new double[]  { .45	, .45    , .45    , .45 	} );
+			put("CargoHatch",  	     new double[]  { .55	, .55    , .55    , .55  	} );
+			put("LowRocketBall",     new double[]  { .65    , .65    , .65    , .65  	} );
+			put("LowRocketHatch",    new double[]  { .35    , .35    , .35    , .35     } );
+		
+		}};
 }
+

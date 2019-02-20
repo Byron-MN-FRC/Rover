@@ -99,5 +99,6 @@ public class BallAcquisition extends Subsystem {
         System.out.println("aquireStop");
         ballMotor.set(0);
     }
+    public DoubleSolenoid getAcquirePiston(){return acquirePiston;}
 }
 
