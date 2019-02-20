@@ -47,8 +47,8 @@ public class Constants {
 
 		{
 		   put("normal", new Integer(0));
-		   put("cargo", new Integer(1500));
-		   put("rocket", new Integer (3000));
+		   put("cargo", new Integer(100));
+		   put("rocket", new Integer (60));
 	}};	
 
 	  // Catapult Speed and Time
@@ -64,3 +64,4 @@ public class Constants {
 		
 		}};
 }
+
