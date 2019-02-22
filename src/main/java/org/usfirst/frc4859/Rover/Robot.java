@@ -129,6 +129,7 @@ public class Robot extends TimedRobot {
         Robot.climb.getKickstand().set(Value.kForward);
         Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
         Robot.ballAcquisition.getAcquirePiston().set(Value.kReverse);
+        
     }
 
     /**
@@ -156,9 +157,31 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
         SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
         SmartDashboard.putString("Target", Robot.lift.target);
-        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
-        SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.getLeftKickstandIRSensor().getValue());
-        SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
+      
+        if (Robot.oi.tMode) {
+            SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
+            SmartDashboard.putData("DriveForwardTimed: FiveSeconds", new DriveForwardTimed(5, .4));
+            SmartDashboard.putData("DriveToVisionTarget", new DriveToVisionTarget());
+            // SmartDashboard.putData("MoveHatch: Vertical", new MoveHatch(1));
+            // SmartDashboard.putData("MoveHatch: NearGround", new MoveHatch(2));
+            // SmartDashboard.putData("MoveHatch: OnGround", new MoveHatch(3));
+            // SmartDashboard.putData("MoveHatch: Stowed", new MoveHatch(0));
+            SmartDashboard.putData("FlipMode", new FlipMode());
+            SmartDashboard.putData("DeployKickstand", new DeployKickstand());
+            SmartDashboard.putData("ShiftGravity", new ShiftGravity());
+            SmartDashboard.putData("AquireBall", new AquireBall());
+            SmartDashboard.putData("AquireDeploy", new AquireDeploy());
+            SmartDashboard.putData("DeployFeet", new DeployFeet());
+            SmartDashboard.putData("StartClimb", new StartClimb());
+            SmartDashboard.putData("DeployAcquisition", new DeployAcquisition());
+            // SmartDashboard.putData("RaiseFeet", new RaiseFeet());
+            SmartDashboard.putData("RaiseKickstand", new RaiseKickstand());
+            SmartDashboard.putData("LiftToHeight", new LiftToHeight());
+            SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
+            SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.getLeftKickstandIRSensor().getValue());
+            SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
+    
+        }
     }
 }
 
