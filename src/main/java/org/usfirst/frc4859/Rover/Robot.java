@@ -156,9 +156,9 @@ public class Robot extends TimedRobot {
         //         break;
         //     default: LimelightUtility.StreamingMode(StreamMode.Standard);
         // }
-        SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
-        SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
-        SmartDashboard.putString("Target", Robot.lift.target);
+        // SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
+        // SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
+        // SmartDashboard.putString("Target", Robot.lift.target);
       
         // if (Robot.oi.tMode) {
         //     SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
@@ -184,7 +184,14 @@ public class Robot extends TimedRobot {
         //     SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
     
         // }
-        SmartDashboard.putString("Left/Right Lidar", String.valueOf(Duallidar.leftDistmm) + "/" + String.valueOf(Duallidar.rightDistmm));
+        SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
+        SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
+        SmartDashboard.putString("Target", Robot.lift.target);
+        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
+        SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
+        SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
+        SmartDashboard.putNumber("Climb Time", Robot.climb.cTime);
+
     }
 }
 
