@@ -23,6 +23,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc4859.Rover.commands.*;
 import org.usfirst.frc4859.Rover.subsystems.*;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
+import org.usfirst.frc4859.Rover.utility.Duallidar;
 import org.usfirst.frc4859.Rover.utility.LimelightUtility;
 import org.usfirst.frc4859.Rover.utility.LimelightUtility.StreamMode;
 /**
@@ -137,7 +139,7 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
-        LimelightUtility.RefreshTrackingData();
+       // LimelightUtility.RefreshTrackingData();
         Scheduler.getInstance().run();
         // SmartDashboard.putNumber("SensorVel", Robot.climb.getFeetMotor().getSelectedSensorVelocity(Constants.kPIDLoopIdx));
         // SmartDashboard.putNumber("SensorPos",  Robot.climb.getFeetMotor().getSelectedSensorPosition(Constants.kPIDLoopIdx));
@@ -182,6 +184,7 @@ public class Robot extends TimedRobot {
         //     SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
     
         // }
+        SmartDashboard.putString("Left/Right Lidar", String.valueOf(Duallidar.leftDistmm) + "/" + String.valueOf(Duallidar.rightDistmm));
     }
 }
 
