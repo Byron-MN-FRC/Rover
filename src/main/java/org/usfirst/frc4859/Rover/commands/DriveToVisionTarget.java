@@ -41,9 +41,9 @@ public class DriveToVisionTarget extends Command {
     private DualLidarTrackingPIDSource pidSourceTargetLidar = 
         new DualLidarTrackingPIDSource() ;
     private VisionTrackingPIDSource pidSourceTargetHorizontalOffset = 
-        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetHorizontalOffset);
+        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetHorizontalOffset, .1, 0);
     private VisionTrackingPIDSource pidSourceTargetAreaPercentage = 
-        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetAreaPercentage);
+        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetAreaPercentage, .3, 4);
     // #################################################################################################
     // #################################################################################################
 
