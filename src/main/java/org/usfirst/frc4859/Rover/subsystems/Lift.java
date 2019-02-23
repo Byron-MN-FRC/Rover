@@ -82,11 +82,12 @@ public class Lift extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public void liftToHeight(String target) {
-    	liftMotor.set(ControlMode.MotionMagic, Constants.liftPosition.get(target)); 
+        liftMotor.set(ControlMode.MotionMagic, Constants.catapultVariables.get(target)[4]); 
+        atHeight = true;
     }
     
     public void liftToHeight() {
-        liftMotor.set(ControlMode.MotionMagic, Constants.liftPosition.get(target)); 
+        liftMotor.set(ControlMode.MotionMagic, Constants.catapultVariables.get(target)[4]); 
         atHeight = true;
     }
     
@@ -149,4 +150,5 @@ public class Lift extends Subsystem {
         /* Zero the sensor */
         liftMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
     }
+    public TalonSRX getLiftMotor() { return liftMotor; }
 }

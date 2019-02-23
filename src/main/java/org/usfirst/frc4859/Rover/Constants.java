@@ -43,13 +43,13 @@ public class Constants {
 	public static final double kBallAquireSpeed = -.75;
 
 	// Lift
-	// public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
+	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
 
-	// 	{
-	// 	   put("normal", new Integer(0));
-	// 	   put("cargo", new Integer(100));
-	// 	   put("rocket", new Integer (60));
-	// }};	
+		{
+		   put("normal", new Integer(0));
+		   put("cargo", new Integer(100));
+		   put("rocket", new Integer (60));
+	}};	
 
 	  // Catapult Speed and Time
 	  public static final Map<String, double[]> catapultVariables = new HashMap<String, double[]> () {

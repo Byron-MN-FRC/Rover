@@ -191,6 +191,9 @@ public class Robot extends TimedRobot {
         SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
         SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
         SmartDashboard.putNumber("Climb Time", Robot.climb.cTime);
+        SmartDashboard.putNumber("Sensor Velocity", Robot.lift.getLiftMotor().getSelectedSensorVelocity(Constants.kPIDLoopIdx));
+        SmartDashboard.putNumber("Sensor Position", Robot.lift.getLiftMotor().getSelectedSensorPosition(Constants.kPIDLoopIdx));
+        
 
     }
 }
