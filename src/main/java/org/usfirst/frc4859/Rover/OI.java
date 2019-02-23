@@ -33,7 +33,7 @@ import org.usfirst.frc4859.Rover.commands.RaiseKickstand;
 import org.usfirst.frc4859.Rover.commands.ShiftGravity;
 import org.usfirst.frc4859.Rover.commands.StartClimb;
 import org.usfirst.frc4859.Rover.commands.TestingMode;
-import org.usfirst.frc4859.Rover.commands.setClimbTime;
+import org.usfirst.frc4859.Rover.commands.SetClimbTime;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -101,9 +101,9 @@ public class OI {
         xBox = new Joystick(1);
         
         setClimbHigh = new JoystickButton(xBox, 6);
-        setClimbHigh.whenPressed(new setClimbTime(5));
+        setClimbHigh.whenPressed(new SetClimbTime(5.0));
         setClimbLow = new JoystickButton(xBox, 5);
-        setClimbLow.whenPressed(new setClimbTime(2.5));
+        setClimbLow.whenPressed(new SetClimbTime(2.5));
         climbReady = new JoystickButton(xBox, 10);
         climbReady.whenPressed(new ClimbMode());
         setLowRocketHatch = new JoystickButton(xBox, 4);
@@ -131,7 +131,7 @@ public class OI {
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
         btnFlipMode = new JoystickButton(joystick, 2);
-        btnFlipMode.toggleWhenPressed(new FlipMode());
+        btnFlipMode.whenPressed(new FlipMode());
         btnDeployCatapult = new JoystickButton(joystick, 1);
         btnDeployCatapult.whenPressed(new DeployCatapult());
 

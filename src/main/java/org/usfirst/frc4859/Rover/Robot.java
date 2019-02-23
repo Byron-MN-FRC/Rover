@@ -180,7 +180,7 @@ public class Robot extends TimedRobot {
             SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
             SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.getLeftKickstandIRSensor().getValue());
             SmartDashboard.putNumber("Right Kickstad", Robot.driveTrain.getRightKickstandIRSensor().getValue());
-    
+            SmartDashboard.putNumber("Climb Time", Robot.climb.commandTimeout);
         }
     }
 }

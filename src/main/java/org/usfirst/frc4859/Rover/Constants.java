@@ -62,7 +62,7 @@ public class Constants {
 			put("LowRocketBall",     new double[]  { .65    , .65    , .65    , .65  	,  0} );
 			put("LowRocketHatch",    new double[]  { .35    , .35    , .35    , .35     ,  0} );
 			put("MidRocketBall",     new double[]  { .65    , .65    , .65    , .65  	,  6813} );
-			put("MidRocketHatch",    new double[]  { .35    , .35    , .35    , .35     ,  6813} )
+			put("MidRocketHatch",    new double[]  { .35    , .35    , .35    , .35     ,  6813} );
 		}};
 }
 
