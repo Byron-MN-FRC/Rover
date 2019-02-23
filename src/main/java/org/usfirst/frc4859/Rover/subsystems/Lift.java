@@ -126,8 +126,5 @@ public class Lift extends Subsystem {
         /* Zero the sensor */
         liftMotor.setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
     }
-    public void stopLift() {
-        System.out.println("StopLift");
-       // Lift.set(stopLift());
-    }
+    
 }
