@@ -11,28 +11,28 @@
 
 package org.usfirst.frc4859.Rover;
 
-import org.usfirst.frc4859.Rover.commands.AquireBall;
-import org.usfirst.frc4859.Rover.commands.AquireDeploy;
+//import org.usfirst.frc4859.Rover.commands.AquireBall;
+//import org.usfirst.frc4859.Rover.commands.AquireDeploy;
 import org.usfirst.frc4859.Rover.commands.AquireRetract;
 import org.usfirst.frc4859.Rover.commands.CargoBall;
 import org.usfirst.frc4859.Rover.commands.CargoHatch;
 import org.usfirst.frc4859.Rover.commands.ClimbMode;
 import org.usfirst.frc4859.Rover.commands.DeployAcquisition;
 import org.usfirst.frc4859.Rover.commands.DeployCatapult;
-import org.usfirst.frc4859.Rover.commands.DeployFeet;
+//import org.usfirst.frc4859.Rover.commands.DeployFeet;
 import org.usfirst.frc4859.Rover.commands.DeployKickstand;
 import org.usfirst.frc4859.Rover.commands.DriveForwardProximity;
-import org.usfirst.frc4859.Rover.commands.DriveForwardTimed;
+//import org.usfirst.frc4859.Rover.commands.DriveForwardTimed;
 import org.usfirst.frc4859.Rover.commands.DriveToVisionTarget;
-import org.usfirst.frc4859.Rover.commands.DriveWithJoystick;
+//import org.usfirst.frc4859.Rover.commands.DriveWithJoystick;
 import org.usfirst.frc4859.Rover.commands.FlipMode;
 import org.usfirst.frc4859.Rover.commands.LiftToHeight;
 import org.usfirst.frc4859.Rover.commands.LowRocketBall;
 import org.usfirst.frc4859.Rover.commands.LowRocketHatch;
-import org.usfirst.frc4859.Rover.commands.RaiseKickstand;
-import org.usfirst.frc4859.Rover.commands.ShiftGravity;
+//import org.usfirst.frc4859.Rover.commands.RaiseKickstand;
+//import org.usfirst.frc4859.Rover.commands.ShiftGravity;
 import org.usfirst.frc4859.Rover.commands.StartClimb;
-import org.usfirst.frc4859.Rover.commands.TestingMode;
+//import org.usfirst.frc4859.Rover.commands.TestingMode;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -131,7 +131,7 @@ public class OI {
 
 
         // SmartDashboard Buttons
-        SmartDashboard.putData("TestingMode", new TestingMode());
+        //SmartDashboard.putData("TestingMode", new TestingMode());
 
         // if (tMode) {
         //     SmartDashboard.putData("DriveWithJoystick", new DriveWithJoystick());
