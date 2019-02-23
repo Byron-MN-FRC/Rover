@@ -57,11 +57,12 @@ public class Constants {
 		private static final long serialVersionUID = 1L;
 	
 		{	   //name                              UpSpeed   UpTime   DownSpeed  DownTime 
-			put("CargoBall",         new double[]  { .45	, .45    , .45    , .45 	} );
-			put("CargoHatch",  	     new double[]  { .55	, .55    , .55    , .55  	} );
-			put("LowRocketBall",     new double[]  { .65    , .65    , .65    , .65  	} );
-			put("LowRocketHatch",    new double[]  { .35    , .35    , .35    , .35     } );
-		
+			put("CargoBall",         new double[]  { .45	, .45    , .45    , .45 	,  2920} );
+			put("CargoHatch",  	     new double[]  { .55	, .55    , .55    , .55  	,  0} );
+			put("LowRocketBall",     new double[]  { .65    , .65    , .65    , .65  	,  0} );
+			put("LowRocketHatch",    new double[]  { .35    , .35    , .35    , .35     ,  0} );
+			put("MidRocketBall",     new double[]  { .65    , .65    , .65    , .65  	,  6813} );
+			put("MidRocketHatch",    new double[]  { .35    , .35    , .35    , .35     ,  6813} )
 		}};
 }
 
