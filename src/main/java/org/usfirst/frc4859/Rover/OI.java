@@ -140,7 +140,7 @@ public class OI {
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
         btnFlipMode = new JoystickButton(joystick, 2);
-        btnFlipMode.whenPressed(new FlipMode());
+        btnFlipMode.toggleWhenPressed(new FlipMode());
         btnDeployCatapult = new JoystickButton(joystick, 1);
         btnDeployCatapult.whenPressed(new DeployCatapult());
 
