@@ -12,6 +12,7 @@
 package org.usfirst.frc4859.Rover.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4859.Rover.Robot;
+import org.usfirst.frc4859.Rover.Constants;
 
 /**
  *
@@ -38,7 +39,7 @@ public class LiftDown extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(2);
+        setTimeout(3.5);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -50,13 +51,16 @@ public class LiftDown extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut();
+        return isTimedOut() || !Robot.lift.getLimitSwitch().get();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
         Robot.lift.liftStop();
+        /* Zero the sensor */
+        Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+ 
     }
 
     // Called when another command which requires one or more of the same

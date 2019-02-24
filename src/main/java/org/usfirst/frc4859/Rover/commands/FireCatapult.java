@@ -61,10 +61,7 @@ public class FireCatapult extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        if (Robot.lift.atHeight) {
-            Robot.catapult.move(speed);
-        }
-        
+         Robot.catapult.move(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

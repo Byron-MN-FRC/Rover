@@ -42,27 +42,19 @@ public class Constants {
 	public static final double kDownSpeed = .15; 
 	public static final double kBallAquireSpeed = -.75;
 
-	// Lift
-	public static final Map<String, Integer > liftPosition = new HashMap<String, Integer> () {
-
-		{
-		   put("normal", new Integer(0));
-		   put("cargo", new Integer(100));
-		   put("rocket", new Integer (60));
-	}};	
-
+	
 	  // Catapult Speed and Time
 	  public static final Map<String, double[]> catapultVariables = new HashMap<String, double[]> () {
 
 		private static final long serialVersionUID = 1L;
 	
 		{	   //name                              USpeed  UTime  DSpeed  DTime  EnCoder
-			put("CargoBall",         new double[]  { .7   , .45  , .15   , .5  , 2920 } );
+			put("CargoBall",         new double[]  { .7   , .45  , .15   , .5  , 22000 } );
 			put("CargoHatch",  	     new double[]  { .7   , .45  , .15   , .5  , 0 } );
 			put("LowRocketBall",     new double[]  { .7   , .45  , .15   , .5  , 0 } );
 			put("LowRocketHatch",    new double[]  { .7   , .45  , .15   , .5  , 0 } );
-			put("MidRocketBall",     new double[]  { .7   , .45  , .15   , .5  , 6813 } );
-			put("MidRocketHatch",    new double[]  { .7   , .45  , .15   , .5  , 6813 } );
+			put("MidRocketBall",     new double[]  { .7   , .45  , .15   , .5  , 44000 } );
+			put("MidRocketHatch",    new double[]  { .7   , .45  , .15   , .5  , 44000 } );
 		
 		}};
 }
