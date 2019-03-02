@@ -12,7 +12,7 @@
 package org.usfirst.frc4859.Rover.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4859.Rover.Robot;
-
+import org.usfirst.frc4859.Rover.Constants;;
 /**
  *
  */
@@ -49,6 +49,10 @@ public class DriveWithXbox extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        if (!Robot.lift.getLimitSwitch().get()){
+            Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+            return true;
+        }
         return false;
     }
 
