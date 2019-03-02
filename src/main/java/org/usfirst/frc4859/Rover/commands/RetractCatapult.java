@@ -45,7 +45,7 @@ public class RetractCatapult extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        double delay = 1.5;
+        double delay = 3;
         // speed = Constants.kDownSpeed;
         speed = Constants.catapultVariables.get(Robot.lift.target)[3];
         if (speed > 1) {
