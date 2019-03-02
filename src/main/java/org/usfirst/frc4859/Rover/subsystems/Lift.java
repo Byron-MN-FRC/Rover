@@ -115,9 +115,8 @@ public class Lift extends Subsystem {
         }
       }
     public void driveWithXbox(Joystick pJoystick){
-        double y = 0 - pJoystick.getY();
-
-        liftMotor.set(ControlMode.PercentOutput, y);
+        double y = 0 - pJoystick.getRawAxis(1) / 2;
+        liftMotor.set(ControlMode.PercentOutput, y);   
     }
 
     // motor config taken from MotionMagic example at
@@ -172,4 +171,5 @@ public class Lift extends Subsystem {
         return false;
 
     }
+    
 }
