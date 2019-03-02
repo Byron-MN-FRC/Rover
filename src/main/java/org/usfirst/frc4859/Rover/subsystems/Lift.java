@@ -25,6 +25,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import org.usfirst.frc4859.Rover.Constants;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  *
@@ -112,6 +113,10 @@ public class Lift extends Subsystem {
             liftMotor.set(ControlMode.MotionMagic, 0);
             // liftMotor.set(-2);
         }
+      }
+    public void driveWithXbox(Joystick pJoystick){
+        double y = 0 - pJoystick.getRawAxis(1) / 2;
+        liftMotor.set(ControlMode.PercentOutput, y);   
     }
 
     // motor config taken from MotionMagic example at
@@ -166,4 +171,5 @@ public class Lift extends Subsystem {
         return false;
 
     }
+    
 }
