@@ -91,9 +91,9 @@ public class Lift extends Subsystem {
     
     public void liftToHeight() {
         double encoderUnits = Constants.catapultVariables.get(target)[4];
-        if (encoderUnits > 0) {
+      //  if (encoderUnits > 0) {
              liftMotor.set(ControlMode.MotionMagic, encoderUnits); 
-        }
+ //       }
     }
     
    // public void liftUp(double inputSpeed){
@@ -109,10 +109,10 @@ public class Lift extends Subsystem {
 
     public void liftDown(){
         System.out.println("lift down");
-        if (!(target.equals("LowRocketBall") || target.equals("LowRocketHatch") || target.equals("CargoHatch"))) {
+        //if (!(target.equals("LowRocketBall") || target.equals("LowRocketHatch") || target.equals("CargoHatch"))) {
             liftMotor.set(ControlMode.MotionMagic, 0);
             // liftMotor.set(-2);
-        }
+    //   }
       }
     public void driveWithXbox(Joystick pJoystick){
         double y = 0 - pJoystick.getRawAxis(1) / 3;
