@@ -49,7 +49,7 @@ public class Constants {
 		private static final long serialVersionUID = 1L;
 	
 		{	   //name                              USpeed  UTime  DSpeed  DTime  EnCoder
-			put("CargoBall",        new double[]  { .5   , .55  , .15   , .5  , 22000 } );
+			put("CargoBall",        new double[]  { .5   , .55  , .15   , .5  , 11000 } );
 			put("NoLift",  	       	new double[]  { .7   , .45  , .15   , .5  , 0 } );
 			put("MidRocket",    	new double[]  { .7   , .45  , .15   , .5  , 44000 } );
 		

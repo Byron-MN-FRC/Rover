@@ -38,12 +38,13 @@ public class DriveWithXbox extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        Robot.lift.driveWithXbox(Robot.oi.xBox);
+       
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.lift.driveWithXbox(Robot.oi.xBox);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -51,6 +52,7 @@ public class DriveWithXbox extends Command {
     protected boolean isFinished() {
         if (!Robot.lift.getLimitSwitch().get()){
             Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+            Robot.lift.liftStop();
             return true;
         }
         return false;
