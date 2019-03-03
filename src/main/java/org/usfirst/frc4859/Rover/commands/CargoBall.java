@@ -39,6 +39,9 @@ public class CargoBall extends Command {
     @Override
     protected void initialize() {
         Robot.lift.target = "CargoBall";
+        setTimeout(2);
+        System.out.println("liftToHeight"); 
+        Robot.lift.liftToHeight();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -49,17 +52,19 @@ public class CargoBall extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return true;
+        return Robot.lift.atHeight() || isTimedOut();
     }
 
     // Called once after isFinished returns true
     @Override
     protected void end() {
+        Robot.lift.liftStop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     @Override
     protected void interrupted() {
+        end();
     }
 }

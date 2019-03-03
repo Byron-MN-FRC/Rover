@@ -45,21 +45,22 @@ public class RetractCatapult extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        double delay = 1.5;
+        double delay = 3;
         // speed = Constants.kDownSpeed;
-        speed = Constants.catapultVariables.get(Robot.lift.target)[3];
+        speed = Constants.catapultVariables.get(Robot.lift.target)[2];
         if (speed > 1) {
             speed = 1;
         }
         System.out.println("DownSpeed = " + speed);
         // time = Constants.kDownTime;
-        time = Constants.catapultVariables.get(Robot.lift.target)[4];
+        time = Constants.catapultVariables.get(Robot.lift.target)[3];
         if (time > 1.5) {
             time = 1.5;
         }
         System.out.println("Downtime = " + time);
-        Timer.delay(delay);
-        setTimeout(time + delay);
+       // Timer.delay(delay);
+        //setTimeout(time + delay);
+        setTimeout(time);
     }
 
     // Called repeatedly when this Command is scheduled to run

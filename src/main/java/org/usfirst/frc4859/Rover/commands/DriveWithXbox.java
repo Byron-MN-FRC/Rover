@@ -12,7 +12,7 @@
 package org.usfirst.frc4859.Rover.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc4859.Rover.Robot;
-
+import org.usfirst.frc4859.Rover.Constants;;
 /**
  *
  */
@@ -38,17 +38,23 @@ public class DriveWithXbox extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        Robot.lift.driveWithXbox(Robot.oi.xBox);
+       
     }
 
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
+        Robot.lift.driveWithXbox(Robot.oi.xBox);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
+        if (!Robot.lift.getLimitSwitch().get()){
+            Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+            Robot.lift.liftStop();
+            return true;
+        }
         return false;
     }
 
