@@ -132,12 +132,12 @@ public class DriveToVisionTarget extends Command {
         approachController.enable();
         
         // Controls the side to side movement of the robot or the x value of the joystick (straiffing)
-        side2SideController = new PIDController(0.8, 0.001, 0.0, pidSourceTargetLinup, pidOutputSide2Side);
+        side2SideController = new PIDController(0.75, 0.001, 0.0, pidSourceTargetLinup, pidOutputSide2Side);
         side2SideController.setName("drivetrain", "side2SideController");
         side2SideController.reset();
         side2SideController.setInputRange(-2, 2);
         side2SideController.setOutputRange(-0.5, 0.5);
-        side2SideController.setSetpoint(.5);
+        side2SideController.setSetpoint(0);
         side2SideController.enable();
 
         // Controls the direction the robot is facing or the "z" value of the joystick (twist);
@@ -164,7 +164,7 @@ public class DriveToVisionTarget extends Command {
             }
         else
         {
-
+            Robot.driveTrain.driveWithJoystick(Robot.oi.joystick);
         }
     }
 

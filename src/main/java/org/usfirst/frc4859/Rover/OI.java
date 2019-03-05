@@ -68,9 +68,9 @@ public class OI {
     public JoystickButton btnDeployCatapult;
     public JoystickButton btnFlipMode;
     public JoystickButton btnDriveVisionTarget;
-    public JoystickButton btnDeployAcquisition;
     public JoystickButton btnStartClimb;
     public JoystickButton btnRetractAcquisition;
+    public JoystickButton btnDeployAcquisition;
     public Joystick joystick;
     public JoystickButton setNoLift;
     public JoystickButton setCargoBall;
@@ -111,12 +111,12 @@ public class OI {
         setNoLift.whenPressed(new NoLift());
         joystick = new Joystick(0);
         
-        btnRetractAcquisition = new JoystickButton(joystick, 6);
-        btnRetractAcquisition.whenReleased(new AquireRetract());
-        btnStartClimb = new JoystickButton(joystick, 10);
-        btnStartClimb.whenPressed(new StartClimb());
         btnDeployAcquisition = new JoystickButton(joystick, 6);
         btnDeployAcquisition.whileHeld(new DeployAcquisition());
+        btnRetractAcquisition = new JoystickButton(joystick, 6);
+        btnRetractAcquisition.whenReleased(new AquireRetract());
+        btnStartClimb = new JoystickButton(joystick, 4);
+        btnStartClimb.whenPressed(new StartClimb());
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
         btnFlipMode = new JoystickButton(joystick, 2);
