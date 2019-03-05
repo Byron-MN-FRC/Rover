@@ -145,10 +145,10 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-       if (!Robot.lift.getLimitSwitch().get()) {
+        if (!Robot.lift.getLimitSwitch().get()) {
            Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
     }
-       // if (Robot.oi.tMode) {
+        if (Robot.oi.tMode) {
             // LimelightUtility.RefreshTrackingData();
       //      SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
       //      SmartDashboard.putNumber("Left Kickstand", Robot.driveTrain.getLeftKickstandIRSensor().getValue());
@@ -159,13 +159,15 @@ public class Robot extends TimedRobot {
             SmartDashboard.putNumber("ClosedLoopError", Robot.lift.getLiftMotor().getClosedLoopError(Constants.kPIDLoopIdx));
       //      SmartDashboard.putBoolean("Vision Taget Found", LimelightUtility.ValidTargetFound());
             SmartDashboard.putBoolean("Limit Switch", !Robot.lift.getLimitSwitch().get());
-      //  }
+
+        }
         SmartDashboard.putBoolean("Ready to Climb", Robot.climb.cMode);
         SmartDashboard.putNumber("Climb Time", Robot.climb.cTime);
         SmartDashboard.putBoolean("Flip Mode", Robot.driveTrain.fMode);
         SmartDashboard.putString("Target", Robot.lift.target);
-        SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
-        SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
+        //SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
+        //SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
+        SmartDashboard.putBoolean("Testing Mode", Robot.oi.tMode);
 
     }
 }

@@ -52,7 +52,7 @@ public class Constants {
 		{	   //name                              USpeed  UTime  DSpeed  DTime  EnCoder
 			put("CargoBall",        new double[]  { .5   , .65  , .15   , .5  , 11000 } );
 			put("NoLift",  	       	new double[]  { .7   , .45  , .15   , .5  , 0 } );
-			put("MidRocket",    	new double[]  { .7   , .45  , .15   , .5  , 22000 } );
+			put("MidRocket",    	new double[]  { .7   , .45  , .15   , .5  , 23000 } );
 		
 		}};
 }
