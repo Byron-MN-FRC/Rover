@@ -1,6 +1,7 @@
 package org.usfirst.frc4859.Rover.utility;
 import edu.wpi.first.wpilibj.PIDSource;
 import edu.wpi.first.wpilibj.PIDSourceType;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class VisionTrackingPIDSource implements PIDSource {
     private double _lastValidValue = 0; 
@@ -17,7 +18,13 @@ public class VisionTrackingPIDSource implements PIDSource {
         TargetSideLengthShortest,
         TargetSideLenghtLongest,
         TargetHorizSideLengthRoughBox,
-        TargetVertSideLengthRoughbox;
+        TargetVertSideLengthRoughbox,
+        Camera3dTranslation_x,      
+        Camera3dTranslation_y,      
+        Camera3dTranslation_z,      
+        Camera3dTranslation_pitch,
+        Camera3dTranslation_yaw,   
+        Camera3dTranslation_roll
     }
 
     private DataSource visionTrackingSource;
@@ -72,6 +79,7 @@ public class VisionTrackingPIDSource implements PIDSource {
         case TargetAreaPercentage: value = 
             LimelightUtility.TargetAreaPercentage;
             _range = 100;
+            //SmartDashboard.putNumber("TargetAreaPercentage", value);
             break;
         case TargetSideLengthShortest: value = 
             LimelightUtility.TargetSideLengthShortest;
@@ -89,27 +97,56 @@ public class VisionTrackingPIDSource implements PIDSource {
             value = LimelightUtility.TargetVertSideLengthRoughbox;
             _range = 320;
             break;
+        case Camera3dTranslation_x    :  
+            value = LimelightUtility.Camera3dTranslation_x;
+            _range = 40;
+            // SmartDashboard.putNumber("Camera3dTranslation_x", value);
+            if (Math.abs(value) < 2) {value = 0;}
+            else {
+                value = (value < 0) ? -1 : 1;
+            }
+            break;
+        case Camera3dTranslation_y    :  
+            value = LimelightUtility.Camera3dTranslation_y;
+            _range = 320;
+            break;
+        case Camera3dTranslation_z    :  
+            value = LimelightUtility.Camera3dTranslation_z;
+            _range = 320;
+            break;
+        case Camera3dTranslation_pitch:  
+            value = LimelightUtility.Camera3dTranslation_pitch;
+            _range = 320;
+            break;
+        case Camera3dTranslation_yaw  :  
+            value = LimelightUtility.Camera3dTranslation_yaw;
+            _range = 320;
+            break;
+        case Camera3dTranslation_roll :  
+            value = LimelightUtility.Camera3dTranslation_roll;
+            _range = 320;
+            break;
         default: 
             value = 0.0;
             _range = 100;
       }
 
       // lets now compare this value to the previous value
-      if (!_initialRead)
-      {
-        double diff = Math.abs(value - _lastValidValue);
-        double percentDif = diff / _range; //
-        if (percentDif <= _percentTollerance) {
-            _lastValidValue = value;
-        } else {
-            // we have aquired another target, best to ignore and return the requested set point
-            value = _setPoint;
-        }
-      } else {
-          // The first time in, simply use the value returned by limelight. 
-          _lastValidValue = value;
-          _initialRead = false;
-      }
+    //   if (!_initialRead)
+    //   {
+    //     double diff = Math.abs(value - _lastValidValue);
+    //     double percentDif = diff / _range; //
+    //     if (percentDif <= _percentTollerance) {
+    //         _lastValidValue = value;
+    //     } else {
+    //         // we have aquired another target, best to ignore and return the requested set point
+    //         value = _setPoint;
+    //     }
+    //   } else {
+    //       // The first time in, simply use the value returned by limelight. 
+    //       _lastValidValue = value;
+    //       _initialRead = false;
+    //   }
       return value;
   }
 }

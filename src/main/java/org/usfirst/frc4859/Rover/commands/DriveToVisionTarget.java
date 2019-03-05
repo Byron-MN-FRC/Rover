@@ -10,20 +10,12 @@
 
 
 package org.usfirst.frc4859.Rover.commands;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.PIDController;
 import edu.wpi.first.wpilibj.PIDOutput;
-import edu.wpi.first.wpilibj.PIDSource;
-import edu.wpi.first.wpilibj.PIDSourceType;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 import org.usfirst.frc4859.Rover.Robot;
 import org.usfirst.frc4859.Rover.utility.*;
-import org.usfirst.frc4859.Rover.utility.VisionTrackingPIDSource.DataSource;
-import edu.wpi.first.wpilibj.command.Command;
-import org.usfirst.frc4859.Rover.Robot;
 
 /**
  *
@@ -38,34 +30,47 @@ public class DriveToVisionTarget extends Command {
     // Define the PID Source objects - These objects provide the PID loops with data from the individual
     // sensors.
     // #################################################################################################
-    private DualLidarTrackingPIDSource pidSourceTargetLidar = 
-        new DualLidarTrackingPIDSource() ;
+    //private DualLidarTrackingPIDSource pidSourceTargetLidar = new DualLidarTrackingPIDSource() ;
+    private VisionTrackingPIDSource pidSourceTargetLinup = 
+        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.Camera3dTranslation_x, .1, 0);
     private VisionTrackingPIDSource pidSourceTargetHorizontalOffset = 
-        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetHorizontalOffset, .1, 0);
+        new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetHorizontalOffset, 1, 0);
     private VisionTrackingPIDSource pidSourceTargetAreaPercentage = 
         new VisionTrackingPIDSource(VisionTrackingPIDSource.DataSource.TargetAreaPercentage, .3, 4);
-    // #################################################################################################
-    // #################################################################################################
 
 
+
+
+
     // #################################################################################################
-    // The following variables will hold the pid output corrections for x, y, and z.
+    // The following variables will hold the pid output corrections for x, y, and z.  These values
+    // are meant to be used for joystick emulation.
     // #################################################################################################
         private double pidOutSide2Side = 0; // x axis
         private double pidOutApproach = 0;  // y axis
         private double pidOutRotation = 0;  // z axis
-    // #################################################################################################
-    // #################################################################################################
+
+
+
+
 
 
     // #################################################################################################
     // Define the PID output objects - These objects provide the PID loops a storage location to store
     // the calculated pid value based on the input.
     // #################################################################################################
+    private PIDOutput pidOutputApproach = new PIDOutput(){
+        @Override
+        public void pidWrite(double output) {
+            pidOutApproach = output;
+            //SmartDashboard.putNumber("pidOutputApproach", output);
+        }
+    };
     private PIDOutput pidOutputSide2Side = new PIDOutput(){
         @Override
         public void pidWrite(double output) {
             pidOutSide2Side = output;
+            //SmartDashboard.putNumber("pidOutSide2Side", output);
         }
     };
     private PIDOutput pidOutputRotation = new PIDOutput(){
@@ -74,35 +79,28 @@ public class DriveToVisionTarget extends Command {
             //System.out.print("pidOutRotation=");System.out.println(pidOutRotation);
             pidOutRotation = -output;
         }
-
     };
-    private PIDOutput pidOutputApproach = new PIDOutput(){
 
-        @Override
-        public void pidWrite(double output) {
-            pidOutApproach = output;
-        }
-    };
-    // #################################################################################################
-    // #################################################################################################
 
+
+
+
+    
+    
+    // #################################################################################################
+    // The following PIDController objects do the PID magic using the input and output objects we
+    // have defined.
+    // #################################################################################################   
     private PIDController approachController;   // Y Axis
     private PIDController side2SideController;  // X Axis
     private PIDController rotationController;   // Z Axis
 
 
+    
     // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTOR
     public DriveToVisionTarget() {
         super("DriveToVisionTarget");
         
-        approachController = new PIDController(0.1, 0.0, 0.0, pidSourceTargetAreaPercentage, pidOutputApproach);
-        approachController.setName("drivetrain", "ApproachController");
-
-        side2SideController = new PIDController(0.1, 0.0, 0.0, pidSourceTargetLidar, pidOutputSide2Side);
-        side2SideController.setName("drivetrain", "side2SideController");
-
-        rotationController = new PIDController(.05, 0.0, 0.0, pidSourceTargetHorizontalOffset, pidOutputRotation);
-        rotationController.setName("drivetrain", "RotationController");
         // END AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=CONSTRUCTOR
         // BEGIN AUTOGENERATED CODE, SOURCE=ROBOTBUILDER ID=VARIABLE_SETTING
 
@@ -116,26 +114,40 @@ public class DriveToVisionTarget extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
+        System.out.println("DriveToVisiontarget initialize()");
+
+        // Switch the limelight to target aquisition
         LimelightUtility.RefreshTrackingData();
         LimelightUtility.EnableDriverCamera(false);
-        System.out.println("DriveToVisiontarget initialize()");
-        approachController.reset();
-        approachController.setInputRange(0, 5);
-        approachController.setOutputRange(0, 1);
-        approachController.setSetpoint(4);
-        approachController.enable();
+        
 
+        // create a 3 pid controllers for joystick emulation
+        //Controls the approach to the target or the "y" value of the joystick 
+        approachController = new PIDController(0.02, 0.0001, 0.000001, pidSourceTargetAreaPercentage, pidOutputApproach);
+        approachController.setName("drivetrain", "ApproachController");
+        approachController.reset();
+        approachController.setInputRange(0, 20);
+        approachController.setOutputRange(0, 0.6);
+        approachController.setSetpoint(20);
+        approachController.enable();
+        
+        // Controls the side to side movement of the robot or the x value of the joystick (straiffing)
+        side2SideController = new PIDController(0.8, 0.001, 0.0, pidSourceTargetLinup, pidOutputSide2Side);
+        side2SideController.setName("drivetrain", "side2SideController");
+        side2SideController.reset();
+        side2SideController.setInputRange(-2, 2);
+        side2SideController.setOutputRange(-0.5, 0.5);
+        side2SideController.setSetpoint(.5);
+        side2SideController.enable();
+
+        // Controls the direction the robot is facing or the "z" value of the joystick (twist);
+        rotationController = new PIDController(.01, 0.0, 0.0, pidSourceTargetHorizontalOffset, pidOutputRotation);
+        rotationController.setName("drivetrain", "RotationController");
         rotationController.reset();
         rotationController.setInputRange(-30, 30);
-        rotationController.setOutputRange(-1, 1);
+        rotationController.setOutputRange(-0.3, 0.3);
         rotationController.setSetpoint(0);
         rotationController.enable();
-
-        side2SideController.reset();
-        side2SideController.setInputRange(-60, 60);
-        side2SideController.setOutputRange(-1, 1);
-        side2SideController.setSetpoint(0);
-        side2SideController.enable();
     }
 
 
@@ -147,8 +159,8 @@ public class DriveToVisionTarget extends Command {
         if (LimelightUtility.ValidTargetFound()){
             Robot.driveTrain.driveToTargetWithVision(
                this.pidOutSide2Side, this.pidOutApproach, this.pidOutRotation);
-            //Robot.driveTrain.driveToTargetWithVision(
-            //    this.pidOutSide2Side, 0, this.pidOutRotation);
+            // Robot.driveTrain.driveToTargetWithVision(
+            //     0, this.pidOutApproach, this.pidOutRotation);
             }
         else
         {
