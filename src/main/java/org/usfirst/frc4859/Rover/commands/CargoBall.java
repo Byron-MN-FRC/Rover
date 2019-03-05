@@ -39,7 +39,7 @@ public class CargoBall extends Command {
     @Override
     protected void initialize() {
         Robot.lift.target = "CargoBall";
-        setTimeout(3.5);
+        setTimeout(2);
         System.out.println("liftToHeight"); 
         Robot.lift.liftToHeight();
     }

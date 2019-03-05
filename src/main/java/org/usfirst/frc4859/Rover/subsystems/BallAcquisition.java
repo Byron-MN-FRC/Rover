@@ -88,7 +88,7 @@ public class BallAcquisition extends Subsystem {
     public void aquireRetract() {
         System.out.println("aquireRetract");
         acquirePiston.set(Value.kReverse);
-        ballMotor.set(Constants.kBallAquireSpeed);
+        ballMotor.set(Constants.kBallAquireRetractSpeed);
     
     }
     public void aquireBall() {
