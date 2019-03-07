@@ -77,7 +77,7 @@ public class Catapult extends Subsystem {
     public void move(double speed) {
         System.out.println("Catapult Move");
         //driving to acomidate motor backwards
-        catapultMotor.set(-speed);
+        catapultMotor.set(speed);
     }
     public void stop() {
         System.out.println("Catapult Stop");

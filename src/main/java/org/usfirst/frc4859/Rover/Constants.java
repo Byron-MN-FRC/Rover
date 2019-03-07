@@ -43,6 +43,8 @@ public class Constants {
 	public static final double kBallAquireSpeed = -.75;
 	public static final double kBallAquireRetractSpeed = -.25;
 
+	public static boolean currentDriveCamMode = true;
+
 	
 	  // Catapult Speed and Time
 	  public static final Map<String, double[]> catapultVariables = new HashMap<String, double[]> () {
@@ -51,8 +53,8 @@ public class Constants {
 	
 		{	   //name                              USpeed  UTime  DSpeed  DTime  EnCoder
 			put("CargoBall",        new double[]  { .5   , .65  , .15   , .5  , 8500 } );
-			put("NoLift",  	       	new double[]  { .5   , .45  , .15   , .5  , 0 } );
-			put("MidRocket",    	new double[]  { .7   , .90  , .15   , .5  , 27000 } );
+			put("NoLift",  	       	new double[]  { .7   , .45  , .15   , .5  , 0 } );
+			put("MidRocket",    	new double[]  { .7   , .90  , .15   , .5  , 25000 } );
 		//  put("MidRocketHatch",   new double[]  { .7   , .90  , .15   , .5  , 27000 } );
 		}};
 }
