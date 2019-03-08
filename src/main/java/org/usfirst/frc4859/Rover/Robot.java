@@ -174,6 +174,7 @@ public class Robot extends TimedRobot {
         //SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
         //SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
         SmartDashboard.putBoolean("Testing Mode", Robot.oi.tMode);
+        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
 
     }
 }
