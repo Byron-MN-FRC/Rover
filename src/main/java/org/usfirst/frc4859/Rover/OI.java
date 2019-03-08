@@ -29,7 +29,7 @@ import org.usfirst.frc4859.Rover.commands.StartClimb;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.usfirst.frc4859.Rover.commands.LiftDown;
-import org.usfirst.frc4859.Rover.commands.SwitchDriveMode;;
+import org.usfirst.frc4859.Rover.commands.RaiseKickstand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -82,6 +82,8 @@ public class OI {
     public JoystickButton setTestingMode;
     public JoystickButton liftDown;
     public JoystickButton setMidRocket;
+    public JoystickButton btnKickstandUp;
+    public JoystickButton btnKickstandDown;
     public Joystick xBox;
     public JoystickButton switchToDriveMode;
 
@@ -105,7 +107,7 @@ public class OI {
         setClimbHigh = new JoystickButton(xBox, 6);
         setClimbHigh.whenPressed(new SetClimbTime(5));
         setClimbLow = new JoystickButton(xBox, 5);
-        setClimbLow.whenPressed(new SetClimbTime(2.5));
+        setClimbLow.whenPressed(new SetClimbTime(1.5));
         setClimbReady = new JoystickButton(xBox, 10);
         setClimbReady.whenPressed(new ClimbMode());
         setCargoBall = new JoystickButton(xBox, 4);
@@ -113,6 +115,11 @@ public class OI {
         setNoLift = new JoystickButton(xBox, 3);
         setNoLift.whenPressed(new NoLift());
         joystick = new Joystick(0);
+
+        btnKickstandDown = new JoystickButton(joystick, 11);
+        btnKickstandDown.whenPressed(new DeployKickstand());
+        btnKickstandUp = new JoystickButton(joystick, 12);
+        btnKickstandUp.whenPressed(new RaiseKickstand());
         
         btnDeployAcquisition = new JoystickButton(joystick, 6);
         btnDeployAcquisition.whileHeld(new DeployAcquisition());

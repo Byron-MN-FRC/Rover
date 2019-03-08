@@ -40,7 +40,7 @@ public class Constants {
 	public static final double kUpTime = .45;
 	public static final double kDownTime = .5;
 	public static final double kDownSpeed = .15; 
-	public static final double kBallAquireSpeed = -.55 ;
+	public static final double kBallAquireSpeed = -.6 ;
 	public static final double kBallAquireRetractSpeed = -.25;
 
 	public static boolean currentDriveCamMode = true;

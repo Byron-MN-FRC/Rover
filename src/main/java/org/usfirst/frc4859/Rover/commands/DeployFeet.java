@@ -38,7 +38,7 @@ public class DeployFeet extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(5);
+        setTimeout(Robot.climb.cTime);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -51,7 +51,8 @@ public class DeployFeet extends Command {
     @Override
     protected boolean isFinished() {
         System.out.println("Proximity =" + Robot.climb.getProximity());
-        return isTimedOut() || !Robot.climb.cMode || (Robot.climb.getProximity() >= 4000);
+        return isTimedOut() || !Robot.climb.cMode || (Robot.climb.getProximity() >= 3800);
+
     }
     
 
@@ -67,3 +68,4 @@ public class DeployFeet extends Command {
     protected void interrupted() {
     }
 }
+
