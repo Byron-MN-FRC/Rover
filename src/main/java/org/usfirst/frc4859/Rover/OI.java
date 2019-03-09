@@ -107,7 +107,7 @@ public class OI {
         setClimbHigh = new JoystickButton(xBox, 6);
         setClimbHigh.whenPressed(new SetClimbTime(5));
         setClimbLow = new JoystickButton(xBox, 5);
-        setClimbLow.whenPressed(new SetClimbTime(1.5));
+        setClimbLow.whenPressed(new SetClimbTime(1.4));
         setClimbReady = new JoystickButton(xBox, 10);
         setClimbReady.whenPressed(new ClimbMode());
         setCargoBall = new JoystickButton(xBox, 4);
@@ -116,20 +116,20 @@ public class OI {
         setNoLift.whenPressed(new NoLift());
         joystick = new Joystick(0);
 
-        btnKickstandDown = new JoystickButton(joystick, 11);
+        btnKickstandDown = new JoystickButton(joystick, 12);
         btnKickstandDown.whenPressed(new DeployKickstand());
-        btnKickstandUp = new JoystickButton(joystick, 12);
+        btnKickstandUp = new JoystickButton(joystick, 11);
         btnKickstandUp.whenPressed(new RaiseKickstand());
         
-        btnDeployAcquisition = new JoystickButton(joystick, 6);
+        btnDeployAcquisition = new JoystickButton(joystick, 2);
         btnDeployAcquisition.whileHeld(new DeployAcquisition());
-        btnRetractAcquisition = new JoystickButton(joystick, 6);
+        btnRetractAcquisition = new JoystickButton(joystick, 2);
         btnRetractAcquisition.whenReleased(new AquireRetract());
         btnStartClimb = new JoystickButton(joystick, 4);
         btnStartClimb.whenPressed(new StartClimb());
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
-        btnFlipMode = new JoystickButton(joystick, 2);
+        btnFlipMode = new JoystickButton(joystick, 6);
         btnFlipMode.toggleWhenPressed(new FlipMode());
         btnDeployCatapult = new JoystickButton(joystick, 1);
         btnDeployCatapult.whenPressed(new DeployCatapult());
