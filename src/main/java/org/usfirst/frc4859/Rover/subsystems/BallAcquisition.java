@@ -81,13 +81,13 @@ public class BallAcquisition extends Subsystem {
     // here. Call these from Commands.
     public void aquireDeploy() {
         System.out.println("aquireDeploy");
-        acquirePiston.set(Value.kForward);
+        acquirePiston.set(Value.kReverse);
        
     }
     //Method to retract ball aquire piston
     public void aquireRetract() {
         System.out.println("aquireRetract");
-        acquirePiston.set(Value.kReverse);
+        acquirePiston.set(Value.kForward);
         ballMotor.set(Constants.kBallAquireRetractSpeed);
     
     }

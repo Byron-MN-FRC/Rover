@@ -109,10 +109,15 @@ public class Robot extends TimedRobot {
 
     @Override
     public void autonomousInit() {
+        Robot.climb.getKickstand().set(Value.kForward);
+        Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
+        Robot.ballAcquisition.getAcquirePiston().set(Value.kForward);
+        Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
         autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null)
             autonomousCommand.start();
+           
     }
 
     /**
@@ -123,6 +128,7 @@ public class Robot extends TimedRobot {
         Scheduler.getInstance().run();
         if (!Robot.lift.getLimitSwitch().get()) {
             Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+        
      }
     }
     @Override
@@ -133,10 +139,10 @@ public class Robot extends TimedRobot {
         // this line or comment it out.
         if (autonomousCommand != null)
             autonomousCommand.cancel();
-        Robot.climb.getKickstand().set(Value.kForward);
-        Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
-        Robot.ballAcquisition.getAcquirePiston().set(Value.kReverse);
-        Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+        //Robot.climb.getKickstand().set(Value.kForward);
+        //Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
+        //Robot.ballAcquisition.getAcquirePiston().set(Value.kForward);
+        //Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
     }
 
     /**
@@ -168,6 +174,8 @@ public class Robot extends TimedRobot {
         //SmartDashboard.putNumber("Left Lidar", Duallidar.leftDistmm);
         //SmartDashboard.putNumber("Right Lidar", Duallidar.rightDistmm);
         SmartDashboard.putBoolean("Testing Mode", Robot.oi.tMode);
+        SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
+        //SmartDashboard.putNumber("Kickstand", value);
 
     }
 }

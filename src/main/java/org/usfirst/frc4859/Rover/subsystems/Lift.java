@@ -49,7 +49,7 @@ public class Lift extends Subsystem {
         
         
         
-        limitSwitch = new DigitalInput(0);
+        limitSwitch = new DigitalInput(9);
         addChild("limitSwitch",limitSwitch);
         
         
