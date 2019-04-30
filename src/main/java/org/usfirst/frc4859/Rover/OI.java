@@ -101,7 +101,7 @@ public class OI {
         liftDown = new JoystickButton(xBox, 1);
         liftDown.whenPressed(new LiftDown());
         setTestingMode = new JoystickButton(xBox, 7);
-        setTestingMode.whenPressed(new TestingMode());
+        setTestingMode.toggleWhenPressed(new TestingMode());
         manualDriveToHeight = new JoystickButton(xBox, 9);
         manualDriveToHeight.whileHeld(new DriveWithXbox());
         setClimbHigh = new JoystickButton(xBox, 6);
@@ -131,7 +131,7 @@ public class OI {
         btnDriveVisionTarget = new JoystickButton(joystick, 3);
         btnDriveVisionTarget.whileHeld(new DriveToVisionTarget());
         btnFlipMode = new JoystickButton(joystick, 6);
-        btnFlipMode.whenPressed(new FlipMode());
+        btnFlipMode.toggleWhenPressed(new FlipMode());
         btnDeployCatapult = new JoystickButton(joystick, 1);
         btnDeployCatapult.whenPressed(new DeployCatapult());
 
