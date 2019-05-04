@@ -91,6 +91,7 @@ public class Catapult extends Subsystem {
         if (Robot.lift.target.equals("NoLift")) {
             catapultServo.set(0);
             catapultServo2.set(1);
+            tMode = !tMode;
         }
         catapultMotor.set(speed);
     }

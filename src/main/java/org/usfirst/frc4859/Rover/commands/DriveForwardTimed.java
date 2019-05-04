@@ -42,7 +42,7 @@ public class DriveForwardTimed extends Command {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        setTimeout(m_timeInSeconds);
+        //setTimeout(m_timeInSeconds);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -54,7 +54,8 @@ public class DriveForwardTimed extends Command {
     // Make this return true when this Command no longer needs to run execute()
     @Override
     protected boolean isFinished() {
-        return isTimedOut() || Robot.driveTrain.isVisible();
+        //return isTimedOut() || Robot.driveTrain.isVisible();
+        return Robot.driveTrain.isVisible();
     }
 
     // Called once after isFinished returns true
