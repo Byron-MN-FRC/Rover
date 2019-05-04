@@ -194,7 +194,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: &id008 []
+        value: &id010 []
     Base: Subsystem
     Name: BallAcquisition
   - Children:
@@ -219,14 +219,24 @@ Children:
     - Children: []
       Properties:
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id009 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
             '11', '12', '13', '14', '15', '16', '17', '18', '19']
           default: '0'
           name: Output Channel (PWM)
-          validators: &id010 [PWMOutput]
+          validators: &id009 [PWMOutput]
           value: '2'
       Base: Servo
       Name: catapultServo
+    - Children: []
+      Properties:
+        Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id008
+          default: '0'
+          name: Output Channel (PWM)
+          validators: *id009
+          value: '3'
+      Base: Servo
+      Name: catapultServo-2
     Properties:
       Send to SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: false,
         name: Send to SmartDashboard, validators: null, value: false}
@@ -241,18 +251,18 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id008
+        value: *id010
     Base: Subsystem
     Name: Catapult
   - Children:
     - Children: []
       Properties:
         Output Channel (PWM): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id009
+          choices: *id008
           default: '0'
           name: Output Channel (PWM)
-          validators: *id010
-          value: '3'
+          validators: *id009
+          value: '19'
       Base: Servo
       Name: hatchServo
     Properties:
@@ -269,7 +279,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id008
+        value: *id010
     Base: Subsystem
     Name: Hatch
   - Children:
@@ -363,7 +373,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id008
+        value: *id010
     Base: Subsystem
     Name: Climb
   - Children:
@@ -403,7 +413,7 @@ Children:
         default: []
         name: Constants
         validators: null
-        value: *id008
+        value: *id010
     Base: Subsystem
     Name: Lift
   Properties: {}
@@ -1855,9 +1865,9 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\',
+  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\braed\',
     extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\Public'}
-  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\robotics\FRCProjects',
+  Export Directory: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\braed\FRCProjects',
     extension: null, folder: true, name: Export Directory, validators: null, value: 'C:\FRC_Git'}
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: None}
