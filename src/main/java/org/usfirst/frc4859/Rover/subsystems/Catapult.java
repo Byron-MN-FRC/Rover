@@ -89,8 +89,10 @@ public class Catapult extends Subsystem {
         System.out.println("Catapult Move");
         //driving to acomidate motor backwards
         if (Robot.lift.target.equals("NoLift")) {
-            catapultServo.set(0);
-            catapultServo2.set(1);
+            catapultServo.set(1);
+            catapultServo2.set(0);
+            // catapultServo.set(0);
+            // catapultServo2.set(1);
             tMode = !tMode;
         }
         catapultMotor.set(speed);
@@ -104,11 +106,15 @@ public class Catapult extends Subsystem {
 
     public void moveServo() {
         if (tMode) {
-            catapultServo.set(0);
-            catapultServo2.set(1);
+            catapultServo.set(1);
+            catapultServo2.set(0);
+            // catapultServo.set(.35);
+            // catapultServo2.set(.35);
         } else {
-            catapultServo.set(.4);
-            catapultServo2.set(.55);
+            catapultServo.set(.5);
+            catapultServo2.set(.35);
+            // catapultServo.set(1);
+            // catapultServo2.set(0);
         }
     }
 }
