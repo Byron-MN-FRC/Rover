@@ -119,8 +119,8 @@ public class Catapult extends Subsystem {
             // catapultServo.set(.5);
             // catapultServo2.set(.35);
             //eva 
-            catapultServo.set(.58);
-            catapultServo2.set(.43);
+            catapultServo.set(.45);
+            catapultServo2.set(.60);
         }
     }
 }
