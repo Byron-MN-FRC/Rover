@@ -98,14 +98,14 @@ public class Catapult extends Subsystem {
     public void stop() {
         System.out.println("Catapult Stop");
         catapultMotor.set(0);
-        //catapultServo.set(.5);
-        //catapultServo2.set(.45);
+        catapultServo.set(.4);
+        catapultServo2.set(.55);
     }
 
     public void moveServo() {
         if (tMode) {
-            catapultServo.set(0);
-            catapultServo2.set(1);
+            catapultServo.set(1);
+            catapultServo2.set(0);
         } else {
             catapultServo.set(.4);
             catapultServo2.set(.55);
