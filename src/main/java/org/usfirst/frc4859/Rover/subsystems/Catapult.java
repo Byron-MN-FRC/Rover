@@ -89,6 +89,10 @@ public class Catapult extends Subsystem {
         System.out.println("Catapult Move");
         //driving to acomidate motor backwards
         if (Robot.lift.target.equals("NoLift")) {
+            //walle
+            // catapultServo.set(1);
+            // catapultServo2.set(0);
+            //eva
             catapultServo.set(0);
             catapultServo2.set(1);
             tMode = !tMode;
@@ -111,6 +115,5 @@ public class Catapult extends Subsystem {
             catapultServo2.set(.55);
         }
     }
+
 }
-
-
