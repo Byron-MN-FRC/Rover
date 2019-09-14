@@ -113,6 +113,7 @@ public class Robot extends TimedRobot {
         Robot.climb.getGravityShifterSolenoid().set(Value.kReverse);
         Robot.ballAcquisition.getAcquirePiston().set(Value.kForward);
         Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
+        
         autonomousCommand = chooser.getSelected();
         // schedule the autonomous command (example)
         if (autonomousCommand != null)
