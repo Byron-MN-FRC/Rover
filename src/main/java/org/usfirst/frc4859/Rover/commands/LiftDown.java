@@ -55,9 +55,9 @@ public class LiftDown extends Command {
             Robot.lift.getLiftMotor().setSelectedSensorPosition(0, Constants.kPIDLoopIdx, Constants.kTimeoutMs);
             return true;
         }
-        //return false;
+        return false;
     //Return true until limit switch installed
-        return true;
+       // return true;
     }
 
     // Called once after isFinished returns true

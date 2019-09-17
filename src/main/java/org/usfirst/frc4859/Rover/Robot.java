@@ -177,6 +177,7 @@ public class Robot extends TimedRobot {
         SmartDashboard.putBoolean("Testing Mode", Robot.oi.tMode);
         SmartDashboard.putNumber("Proximity Sensor", Robot.climb.getProximity());
         //SmartDashboard.putNumber("Kickstand", value);
+        SmartDashboard.putBoolean("Limit Switch", !Robot.lift.getLimitSwitch().get());
 
     }
 }
