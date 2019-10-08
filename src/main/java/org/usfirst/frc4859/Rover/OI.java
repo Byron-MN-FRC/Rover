@@ -96,8 +96,8 @@ public class OI {
 
         xBox = new Joystick(1);
         
-        setMidRocket = new JoystickButton(xBox, 2);
-        setMidRocket.whenPressed(new MidRocket());
+       // setMidRocket = new JoystickButton(xBox, 2);
+       // setMidRocket.whenPressed(new MidRocket());
         liftDown = new JoystickButton(xBox, 1);
         liftDown.whenPressed(new LiftDown());
         setTestingMode = new JoystickButton(xBox, 7);
@@ -105,9 +105,9 @@ public class OI {
         manualDriveToHeight = new JoystickButton(xBox, 9);
         manualDriveToHeight.whileHeld(new DriveWithXbox());
         setClimbHigh = new JoystickButton(xBox, 6);
-        setClimbHigh.whenPressed(new SetClimbTime(5));
+        setClimbHigh.whenPressed(new SetClimbTime(10));
         setClimbLow = new JoystickButton(xBox, 5);
-        setClimbLow.whenPressed(new SetClimbTime(2.4));
+        setClimbLow.whenPressed(new SetClimbTime(4));
         setClimbReady = new JoystickButton(xBox, 10);
         setClimbReady.whenPressed(new ClimbMode());
         setCargoBall = new JoystickButton(xBox, 4);
