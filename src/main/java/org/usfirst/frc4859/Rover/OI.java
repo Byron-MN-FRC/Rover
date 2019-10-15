@@ -107,7 +107,7 @@ public class OI {
         setClimbHigh = new JoystickButton(xBox, 6);
         setClimbHigh.whenPressed(new SetClimbTime(10));
         setClimbLow = new JoystickButton(xBox, 5);
-        setClimbLow.whenPressed(new SetClimbTime(4));
+        setClimbLow.whenPressed(new SetClimbTime(2.5));
         setClimbReady = new JoystickButton(xBox, 10);
         setClimbReady.whenPressed(new ClimbMode());
         setCargoBall = new JoystickButton(xBox, 4);
